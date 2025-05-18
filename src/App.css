@@ -1,0 +1,4 @@
+/* (1) npm install tailwindcss @tailwindcss/vite --> vite.config.js */
+
+@import "tailwindcss"; 
+/* (4) import --> install Extensions(Ctrl+Shift+X) Tailwind CSS IntelliSense --> App.jsx */

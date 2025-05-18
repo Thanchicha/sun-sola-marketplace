@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+.dialog-overlay {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(8px) !important;
+ }
+
+@font-face {
+    font-family: 'LINE Seed Sans';
+    src: url('/fonts/LINESeedSans-Regular.woff2') format('woff2'),
+         url('/fonts/LINESeedSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'LINE Seed Sans', sans-serif;
+  }
