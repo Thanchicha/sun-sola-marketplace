@@ -41,6 +41,7 @@ function ForgetPass() {
 
   return (
     <>
+      <title>Forget Password | Sun Sola</title>
       <div className="h-screen flex">
         <div className="w-1/2 relative">
           <LoginBG />
@@ -87,23 +88,14 @@ function ForgetPass() {
                   value={checkNewPassword}
                   onChange={setCheckNewPassword}
                 />
-                <p className="text-right pt-2">
-                  New User?{" "}
-                  <Link
-                    to="/login/register/user"
-                    className="text-[#5F7FFF] underline"
-                  >
-                    Signup
-                  </Link>
-                </p>
-                <div className="text-center pt-5">
+                <div className="text-center pt-10">
                   <Button
                     label="Submit"
                     onClick={handleResetPassword}
                     type="submit"
                   />
                   <p className="p-4">
-                    <Link to="/login" className="text-[#5F7FFF] underline">
+                    <Link to="/" className="text-[#5F7FFF] underline">
                       Cancel
                     </Link>
                   </p>

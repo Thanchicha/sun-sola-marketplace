@@ -24,18 +24,17 @@ function Login() {
   };
   return (
     <>
-      <title>Login | WOW KAJIAO</title>
-      <link rel="icon" type="image/png" href="/public/images/icons/sunsolaLogo.png" />
-      <div className="h-screen flex">
+      <title>Login | Sun Sola</title>
+      <div className="h-full flex">
         <div className="w-1/2 relative">
           <LoginBG />
         </div>
         <div className="w-1/2 flex items-center justify-center">
           <div className="w-3/4">
-            <div className="text-center p-8">
-              <h1 className="p-5 font-bold text-4xl">Login</h1>
+            <div className="text-center p-5">
+              <h1 className="p-4 font-bold text-4xl">Login</h1>
               <p className="text-[#929292]">
-                Welcome back! Please login to you account
+                Welcome back! Please login to your account
               </p>
             </div>
             <div className="text-[#929292]">
@@ -62,21 +61,12 @@ function Login() {
                 />
                 <Link
                   to="/login/forgetpassword"
-                  className="block text-right font-semibold underline pt-3"
+                  className="block text-right font-semibold text-sm underline pt-2"
                 >
                   Forget Password?
                 </Link>
-                <div className="text-center pt-5">
+                <div className="text-center pt-4 pb-10">
                   <Button label="Login" onClick={handleLogin} type="submit" />
-                  <p className="p-4">
-                    New User?{" "}
-                    <Link
-                      to="/login/register/user"
-                      className="text-[#5F7FFF] underline"
-                    >
-                      Signup
-                    </Link>
-                  </p>
                 </div>
               </form>
             </div>

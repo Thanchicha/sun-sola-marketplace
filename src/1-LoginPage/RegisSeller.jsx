@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import LoginBG from "./Components/LoginBG";
 import InputField from "./Components/UI/InputField";
 import Button from "./Components/UI/Button";
@@ -16,27 +15,30 @@ function RegisSeller() {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/register/seller", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          organEmail,
-          firstname,
-          lastname,
-          nationId,
-          phone,
-          birthDate,
-          password,
-          confirmPassword
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:5000/api/register/seller",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            organEmail,
+            firstname,
+            lastname,
+            nationId,
+            phone,
+            birthDate,
+            password,
+            confirmPassword,
+          }),
+        }
+      );
       console.log(data);
 
       if (password !== confirmPassword) {
         alert("Password is not match!");
         return;
       }
-      
+
       const data = await response.json();
       if (response.ok) {
         alert("Registration successful!");
@@ -52,16 +54,17 @@ function RegisSeller() {
 
   return (
     <>
-      <div className="h-screen flex">
-        <div className="w-1/2 fixed top-0 left-0 h-screen">
+      <title>Register for Seller | Sun Sola</title>
+      <div className="h-full max-h-screen flex item-center justify-center">
+        <div className="w-1/2 relative">
           <LoginBG />
         </div>
-        <div className="w-1/2 ml-auto my-10 overflow-y-auto max-h-screen flex justify-center">
+        <div className="w-1/2 ml-auto overflow-y-auto max-h-screen flex justify-center">
           <div className="w-3/4">
-            <div className="text-center p-8">
-              <h1 className="p-5 font-bold text-4xl">Sign up (Seller)</h1>
-              <p className="text-[#929292]">
-                Welcome! Please Sign up to your new account
+            <div className="text-center pt-8 pb-4">
+              <h1 className="py-5 font-bold text-3xl">Seller Register</h1>
+              <p className="text-[#929292] text-sm">
+                Welcome! Please register to create new seller account
               </p>
             </div>
             <div className="text-[#929292]">
@@ -138,23 +141,8 @@ function RegisSeller() {
                   value={confirmPassword}
                   onChange={setConfirmPassword}
                 />
-                <Link
-                  to="/login"
-                  className="block text-right font-semibold underline pt-3"
-                >
-                  Back to Login?
-                </Link>
-                <div className="text-center pt-5">
-                  <Button
-                    label="Sign up"
-                    onClick={handleSignup}
-                    type="submit"
-                  />
-                  <p className="p-4">
-                    <Link to="/login" className="text-[#5F7FFF] underline">
-                      Cancel
-                    </Link>
-                  </p>
+                <div className="text-center py-8 pb-12">
+                  <Button label="Submit" onClick={handleSignup} type="submit" />
                 </div>
               </form>
             </div>

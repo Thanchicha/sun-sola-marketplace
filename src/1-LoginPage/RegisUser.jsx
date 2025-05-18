@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import LoginBG from "./Components/LoginBG";
 import InputField from "./Components/UI/InputField";
 import Button from "./Components/UI/Button";
@@ -22,7 +21,7 @@ function RegisUser() {
         alert("Password is not match!");
         return;
       }
-      
+
       const data = await response.json();
       if (response.ok) {
         alert("Registration successful!");
@@ -38,16 +37,17 @@ function RegisUser() {
 
   return (
     <>
-      <div className="h-screen flex">
+      <title>Register for User | Sun Sola</title>
+      <div className="h-full max-h-screen flex item-center justify-center">
         <div className="w-1/2 relative">
           <LoginBG />
         </div>
-        <div className="w-1/2 flex items-center justify-center">
+        <div className="w-1/2 ml-auto max-h-screen flex justify-center">
           <div className="w-3/4">
-            <div className="text-center p-8">
-              <h1 className="p-5 font-bold text-4xl">Sign up (User)</h1>
-              <p className="text-[#929292]">
-                Welcome! Please Sign up to your new account
+            <div className="text-center pt-8">
+              <h1 className="py-5 font-bold text-3xl">User Register</h1>
+              <p className="text-[#929292] text-sm px-5">
+                Welcome! Please register to create new user account
               </p>
             </div>
             <div className="text-[#929292]">
@@ -86,23 +86,8 @@ function RegisUser() {
                   value={confirmPassword}
                   onChange={setConfirmPassword}
                 />
-                <Link
-                  to="/login"
-                  className="block text-right font-semibold underline pt-3"
-                >
-                  Back to Login?
-                </Link>
-                <div className="text-center pt-5">
-                  <Button
-                    label="Sign up"
-                    onClick={handleSignup}
-                    type="submit"
-                  />
-                  <p className="p-4">
-                    <Link to="/login" className="text-[#5F7FFF] underline">
-                      Cancel
-                    </Link>
-                  </p>
+                <div className="text-center py-8 pb-12">
+                  <Button label="Submit" onClick={handleSignup} type="submit" />
                 </div>
               </form>
             </div>
