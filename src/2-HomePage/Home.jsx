@@ -1,21 +1,34 @@
 import React from "react";
 import Narbar from "../0-Component/Navbar";
-import Slogan from "./Component/Home/Slogan"
+import Slogan from "./Component/Home/Slogan";
 import Stat from "./Component/Home/Stat";
-import About from "./Component/Home/About"
+import Banner from "./Component/Home/Banner";
+import About from "./Component/Home/About";
 import Type from "./Component/Home/Type";
+import System from "./Component/Home/System";
+import Size from "./Component/Home/Size";
 
 function Home() {
   return (
     <>
-      <Narbar />
+      <Narbar
+        icon={
+          <img
+            src="/public/images/icons/sunsolaLogo.png"
+            alt="logo"
+            width="95"
+          />
+        }
+        page="Home"
+      />
       <div>
-        <div className="w-full bg-[#fcf995] text-[#193c76] text-right">
-          <Slogan />
-          <Stat />
-        </div>
+        <Slogan />
+        <Stat />
+        <Banner />
         <About />
         <Type />
+        <System />
+        <Size />
       </div>
     </>
   );

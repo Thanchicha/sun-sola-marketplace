@@ -13,7 +13,7 @@ function RegisSeller() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSignup = async () => {
+  const handleSellerRegister = async () => {
     try {
       const response = await fetch(
         "http://localhost:5000/api/register/seller",
@@ -71,7 +71,7 @@ function RegisSeller() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleSignup();
+                  handleSellerRegister();
                 }}
                 className="flex flex-col gap-2"
               >
@@ -142,7 +142,7 @@ function RegisSeller() {
                   onChange={setConfirmPassword}
                 />
                 <div className="text-center py-8 pb-12">
-                  <Button label="Submit" onClick={handleSignup} type="submit" />
+                  <Button label="Submit" onClick={handleSellerRegister} type="submit" />
                 </div>
               </form>
             </div>

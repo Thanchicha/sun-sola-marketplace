@@ -4,11 +4,11 @@ import LoginBG from "./Components/LoginBG";
 import Button from "./Components/UI/Button";
 import InputField from "./Components/UI/InputField";
 
-function Login() {
-  const [email, setEmail] = useState("");
+function LoginSeller() {
+  const [organEmail, setOrganEmail] = useState("");
   const [password, setPassword] = useState("");
   // console.log(email, password);
-  const handleUserLogin = async () => {
+  const handleSellerLogin = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/login", {
         method: "POST",
@@ -24,7 +24,7 @@ function Login() {
   };
   return (
     <>
-      <title>Login | Sun Sola</title>
+      <title>Login for Seller | Sun Sola</title>
       <div className="h-full flex">
         <div className="w-1/2 relative">
           <LoginBG />
@@ -32,25 +32,25 @@ function Login() {
         <div className="w-1/2 flex items-center justify-center">
           <div className="w-3/4">
             <div className="text-center p-5">
-              <h1 className="p-4 font-bold text-4xl">Login</h1>
+              <h1 className="py-4 font-bold text-3xl">Seller Login</h1>
               <p className="text-[#929292]">
-                Welcome back! Please login to your account
+                Welcome back! Please login to your seller account
               </p>
             </div>
             <div className="text-[#929292]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleUserLogin();
+                  handleSellerLogin();
                 }}
                 className="flex flex-col gap-2"
               >
                 <InputField
-                  label="Email"
+                  label="Organization Email"
                   type="email"
-                  id="email"
-                  value={email}
-                  onChange={setEmail}
+                  id="organEmail"
+                  value={organEmail}
+                  onChange={setOrganEmail}
                 />
                 <InputField
                   label="Password"
@@ -66,7 +66,11 @@ function Login() {
                   Forget Password?
                 </Link>
                 <div className="text-center pt-4 pb-10">
-                  <Button label="Login" onClick={handleUserLogin} type="submit" />
+                  <Button
+                    label="Login"
+                    onClick={handleSellerLogin}
+                    type="submit"
+                  />
                 </div>
               </form>
             </div>
@@ -77,5 +81,4 @@ function Login() {
   );
 }
 
-export default Login;
-
+export default LoginSeller;

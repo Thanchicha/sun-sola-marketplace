@@ -1,11 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import Login from "../1-LoginPage/Login";
+import LoginSeller from "../1-LoginPage/LoginSeller";
 import RegisUser from "../1-LoginPage/RegisUser";
 import RegisSeller from "../1-LoginPage/RegisSeller";
+import ButtonYellow from "./UI/ButtonYellow";
+import ButtonRole from "./UI/ButtonRole";
+import Modal from "./UI/Modal";
 
-function Narbar() {
+function Narbar({ icon, line, page }) {
   const [LoginOpen, setLoginOpen] = useState(false);
+  const [LoginUserOpen, setLoginUserOpen] = useState(false);
+  const [LoginSellerOpen, setLoginSellerOpen] = useState(false);
   const [RegisOpen, setRegisOpen] = useState(false);
   const [RegisUserOpen, setRegisUserOpen] = useState(false);
   const [RegisSellerOpen, setRegisSellerOpen] = useState(false);
@@ -14,92 +20,81 @@ function Narbar() {
     <>
       <nav className="px-5 flex items-center justify-between bg-[#11284f]">
         <div className="flex items-center">
-          <img
-            src="/public/images/icons/sunsolaLogo.png"
-            alt="logo"
-            width="95"
-          />
-          <span className="border-l text-white text-[36px] font-medium ml-5 pl-5">
-            Home
+          {icon}
+          <span className=" text-white text-[36px] font-medium ml-5 pl-5" style={{ borderLeft: "1px solid white" }}>
+            {page}
           </span>
         </div>
         <div className="flex gap-4">
-          <button
-            onClick={() => setLoginOpen(true)}
-            className="text-[#193c76] bg-[#faf54f] font-extrabold text-base w-[158px] h-[50px] rounded-full shadow-md"
-          >
-            Login
-          </button>
+          {/* LOGIN */}
           <div className="relative inline-block text-left">
-            <button
-              onClick={() => setRegisOpen(!RegisOpen)}
-              className="text-[#193c76] bg-[#faf54f] font-extrabold text-base w-[158px] h-[50px] rounded-full shadow-md"
-            >
-              Register
-            </button>
+            <ButtonYellow
+              onClick={() => {
+                setLoginOpen(!LoginOpen);
+                setRegisOpen(false);
+              }}
+              value="Login"
+            />
+            {LoginOpen && (
+              <div className="absolute left-0 mt-2 w-[158px] rounded-md bg-white shadow-lg z-50">
+                <ButtonRole
+                  onClick={() => setLoginUserOpen(true)}
+                  role="For User"
+                />
+                <ButtonRole
+                  onClick={() => setLoginSellerOpen(true)}
+                  role="For Seller"
+                />
+              </div>
+            )}
+          </div>
 
+          {/* REGISTER */}
+          <div className="relative inline-block text-left">
+            <ButtonYellow
+              onClick={() => {
+                setRegisOpen(!RegisOpen);
+                setLoginOpen(false);
+              }}
+              value="Register"
+            />
             {RegisOpen && (
               <div className="absolute left-0 mt-2 w-[158px] rounded-md bg-white shadow-lg z-50">
-                <button
+                <ButtonRole
                   onClick={() => setRegisUserOpen(true)}
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                >
-                  For User
-                </button>
-                <button
+                  role="For User"
+                />
+                <ButtonRole
                   onClick={() => setRegisSellerOpen(true)}
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-                >
-                  For Seller
-                </button>
+                  role="For Seller"
+                />
               </div>
             )}
           </div>
         </div>
       </nav>
 
-      {/* Modal */}
-      {LoginOpen && (
-        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex justify-center items-center z-50">
-          <div className="bg-white w-[50vw] h-[75vh] rounded-xl shadow-lg relative overflow-hidden">
-            <button
-              className="absolute top-3 right-3 text-gray-600 hover:text-black"
-              onClick={() => setLoginOpen(false)}
-            >
-              ✕
-            </button>
-            <Login />
-          </div>
-        </div>
-      )}
-
-      {RegisUserOpen && (
-        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex justify-center items-center z-50">
-          <div className="bg-white w-[50vw] h-[75vh] rounded-xl shadow-lg relative overflow-hidden">
-            <button
-              className="absolute top-3 right-3 text-gray-600 hover:text-black"
-              onClick={() => setRegisUserOpen(false)}
-            >
-              ✕
-            </button>
-            <RegisUser />
-          </div>
-        </div>
-      )}
-
-      {RegisSellerOpen && (
-        <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex justify-center items-center z-50">
-          <div className="bg-white w-[50vw] h-[75vh] rounded-xl shadow-lg relative overflow-hidden">
-            <button
-              className="absolute top-3 right-3 text-gray-600 hover:text-black"
-              onClick={() => setRegisSellerOpen(false)}
-            >
-              ✕
-            </button>
-            <RegisSeller />
-          </div>
-        </div>
-      )}
+      {/* MODALS */}
+      <Modal
+        isOpen={LoginUserOpen}
+        onClose={() => setLoginUserOpen(false)}
+        children={<Login />}
+      />
+      <Modal
+        isOpen={LoginSellerOpen}
+        onClose={() => setLoginSellerOpen(false)}
+        children={<LoginSeller />}
+      />
+      <Modal
+        isOpen={RegisUserOpen}
+        onClose={() => setRegisUserOpen(false)}
+        children={<RegisUser />}
+      />
+      <Modal
+        isOpen={RegisSellerOpen}
+        onClose={() => setRegisSellerOpen(false)}
+        children={<RegisSeller />}
+      />
     </>
   );
 }
