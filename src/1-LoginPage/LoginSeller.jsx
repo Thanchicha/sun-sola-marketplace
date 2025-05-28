@@ -1,27 +1,31 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import LoginBG from "./Components/LoginBG";
 import Button from "./Components/UI/Button";
 import InputField from "./Components/UI/InputField";
 
 function LoginSeller() {
-  const [organEmail, setOrganEmail] = useState("");
-  const [password, setPassword] = useState("");
-  // console.log(email, password);
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  // console.log(email, Password);
+  
   const handleSellerLogin = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      console.log(data);
+      const response = await axios.post(
+        "http://10.4.53.25:5008/sellerLogin",
+        {
+          Email,
+          Password,
+        }
+      );
+      console.log(response.data);
     } catch (err) {
       console.error("Login error:", err);
       alert("Something went wrong. Please try again.");
     }
   };
+  
   return (
     <>
       <title>Login for Seller | Sun Sola</title>
@@ -48,19 +52,19 @@ function LoginSeller() {
                 <InputField
                   label="Organization Email"
                   type="email"
-                  id="organEmail"
-                  value={organEmail}
-                  onChange={setOrganEmail}
+                  id="Email"
+                  value={Email}
+                  onChange={setEmail}
                 />
                 <InputField
                   label="Password"
                   type="password"
-                  id="password"
-                  value={password}
+                  id="Password"
+                  value={Password}
                   onChange={setPassword}
                 />
                 <Link
-                  to="/login/forgetpassword"
+                  to="forgetPassword"
                   className="block text-right font-semibold text-sm underline pt-2"
                 >
                   Forget Password?

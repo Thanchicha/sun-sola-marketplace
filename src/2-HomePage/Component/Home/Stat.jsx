@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ButtonBlue from "../../../0-Component/UI/ButtonBlue";
 
 function Stat() {
   return (
     <>
       <div className="w-full bg-[#fcf995] text-[#193c76] text-right pt-9">
-        <Link
-          to="/allshop"
-          className="mr-[118px] ml-auto bg-[#193c76] text-white py-3 px-5 text-base w-[158px] h-[50px] rounded-full shadow-md"
-        >
-          Go to shop
-        </Link>
+        <div className="mr-[118px]">
+          <ButtonBlue to="/allshop" value="Go to shop" />
+        </div>
 
         <h1 className="my-[45px] text-center text-[56px] font-extrabold leading-6 tracking-[2.8px]">
           SUN SOLA

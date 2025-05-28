@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Login from "../1-LoginPage/Login";
 import LoginSeller from "../1-LoginPage/LoginSeller";
 import RegisUser from "../1-LoginPage/RegisUser";
@@ -18,10 +19,14 @@ function Narbar({ icon, line, page }) {
 
   return (
     <>
-      <nav className="px-5 flex items-center justify-between bg-[#11284f]">
+      <nav className="px-5 flex items-center justify-between bg-[#11284f] h-[80px]">
         <div className="flex items-center">
-          {icon}
-          <span className=" text-white text-[36px] font-medium ml-5 pl-5" style={{ borderLeft: "1px solid white" }}>
+          <div className="w-24 flex justify-center items-center">{icon}</div>
+          
+          <span
+            className="text-white text-[28px] font-medium ml-5 pl-5"
+            style={line}
+          >
             {page}
           </span>
         </div>

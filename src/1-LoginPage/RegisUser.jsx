@@ -1,37 +1,42 @@
 import { useState } from "react";
+import axios from "axios";
 import LoginBG from "./Components/LoginBG";
 import InputField from "./Components/UI/InputField";
 import Button from "./Components/UI/Button";
 
 function RegisUser() {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Name, setName] = useState("");
+  const [Password, setPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
 
   const handleUserRegister = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/register/user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, username, password }),
-      });
-
-      if (password !== confirmPassword) {
+      if (Password !== ConfirmPassword) {
         alert("Password is not match!");
         return;
       }
 
-      const data = await response.json();
-      if (response.ok) {
-        alert("Registration successful!");
-        window.location.href = "/login";
-      } else {
-        alert(data.message || "Registration failed.");
-      }
+      const response = await axios.post(
+        "http://10.4.53.25:5008/customerRegister",
+        {
+          Email,
+          Name,
+          Password,
+        }
+      );
+
+      console.log(response.data);
+
+      alert("Registration successful!");
+      window.location.href = "/login";
     } catch (err) {
-      console.error("Signup Seller error:", err);
-      alert("Something went wrong. Please try again.");
+      console.error("Signup User error:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        alert(err.response.data.message);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
     }
   };
 
@@ -61,33 +66,37 @@ function RegisUser() {
                 <InputField
                   label="Email"
                   type="email"
-                  id="email"
-                  value={email}
+                  id="Email"
+                  value={Email}
                   onChange={setEmail}
                 />
                 <InputField
-                  label="Username"
+                  label="Name"
                   type="text"
-                  id="username"
-                  value={username}
-                  onChange={setUsername}
+                  id="Name"
+                  value={Name}
+                  onChange={setName}
                 />
                 <InputField
                   label="Password"
                   type="password"
-                  id="password"
-                  value={password}
+                  id="Password"
+                  value={Password}
                   onChange={setPassword}
                 />
                 <InputField
                   label="Confirm Password"
                   type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
+                  id="ConfirmPassword"
+                  value={ConfirmPassword}
                   onChange={setConfirmPassword}
                 />
                 <div className="text-center py-8 pb-12">
-                  <Button label="Submit" onClick={handleUserRegister} type="submit" />
+                  <Button
+                    label="Submit"
+                    onClick={handleUserRegister}
+                    type="submit"
+                  />
                 </div>
               </form>
             </div>

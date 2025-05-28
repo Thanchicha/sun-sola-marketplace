@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function ButtonYellow({onClick, value}) {
+function ButtonYellow({ to, onClick, value }) {
   return (
-    <button
-      onClick={onClick}
-      className="text-[#193c76] bg-[#faf54f] font-extrabold text-base w-[158px] h-[50px] rounded-full shadow-md"
-    >
-      {value}
-    </button>
+    <Link to={to}>
+      <button
+        onClick={onClick}
+        className="text-[#193c76] bg-[#faf54f] font-extrabold text-base w-[152px] h-[45px] rounded-full shadow-md"
+      >
+        {value}
+      </button>
+    </Link>
   );
 }
 

@@ -1,50 +1,45 @@
 import { useState } from "react";
+import axios from "axios";
 import LoginBG from "./Components/LoginBG";
 import InputField from "./Components/UI/InputField";
 import Button from "./Components/UI/Button";
 
 function RegisSeller() {
-  const [organEmail, setOrganEmail] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [nationId, setNationId] = useState("");
-  const [phone, setPhone] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Firstname, setFirstname] = useState("");
+  const [Lastname, setLastname] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Birthdate, setBirthdate] = useState("");
+  const [Password, setPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
 
   const handleSellerRegister = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/register/seller",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            organEmail,
-            firstname,
-            lastname,
-            nationId,
-            phone,
-            birthDate,
-            password,
-            confirmPassword,
-          }),
-        }
-      );
-      console.log(data);
-
-      if (password !== confirmPassword) {
+      if (Password !== ConfirmPassword) {
         alert("Password is not match!");
         return;
       }
 
-      const data = await response.json();
-      if (response.ok) {
+      const response = await axios.post(
+        "http://10.4.53.25:5008/sellerRegister",
+        {
+          Email,
+          Firstname,
+          Lastname,
+          Phone,
+          Birthdate,
+          Password,
+          ConfirmPassword,
+        }
+      );
+
+      console.log(response.data);
+
+      if (response.status === 200) {
         alert("Registration successful!");
         window.location.href = "/login";
       } else {
-        alert(data.message || "Registration failed.");
+        alert(response.data.message || "Registration failed.");
       }
     } catch (err) {
       console.error("Signup Seller error:", err);
@@ -76,34 +71,25 @@ function RegisSeller() {
                 className="flex flex-col gap-2"
               >
                 <InputField
-                  label="Organization Email"
+                  label="Email"
                   type="email"
-                  id="organEmail"
-                  value={organEmail}
-                  onChange={setOrganEmail}
+                  id="Email"
+                  value={Email}
+                  onChange={setEmail}
                 />
                 <InputField
                   label="First name"
                   type="text"
-                  id="firstname"
-                  value={firstname}
+                  id="Firstname"
+                  value={Firstname}
                   onChange={setFirstname}
                 />
                 <InputField
                   label="Last name"
                   type="text"
-                  id="lastname"
-                  value={lastname}
+                  id="Lastname"
+                  value={Lastname}
                   onChange={setLastname}
-                />
-                <InputField
-                  label="National ID"
-                  type="text"
-                  inputMode="numeric"
-                  patten="[0-9]*"
-                  id="nationId"
-                  value={nationId}
-                  onChange={(val) => setNationId(val.replace(/\D/g, ""))}
                 />
                 <div className="flex gap-5">
                   <div className="w-1/2">
@@ -112,8 +98,8 @@ function RegisSeller() {
                       type="text"
                       inputMode="numeric"
                       patten="[0-9]*"
-                      id="phone"
-                      value={phone}
+                      id="Phone"
+                      value={Phone}
                       onChange={(val) => setPhone(val.replace(/\D/g, ""))}
                     />
                   </div>
@@ -121,28 +107,32 @@ function RegisSeller() {
                     <InputField
                       label="Date of Birth"
                       type="date"
-                      id="birthDate"
-                      value={birthDate}
-                      onChange={setBirthDate}
+                      id="Birthdate"
+                      value={Birthdate}
+                      onChange={setBirthdate}
                     />
                   </div>
                 </div>
                 <InputField
                   label="Password"
                   type="password"
-                  id="password"
-                  value={password}
+                  id="Password"
+                  value={Password}
                   onChange={setPassword}
                 />
                 <InputField
                   label="Confirm Password"
                   type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
+                  id="ConfirmPassword"
+                  value={ConfirmPassword}
                   onChange={setConfirmPassword}
                 />
                 <div className="text-center py-8 pb-12">
-                  <Button label="Submit" onClick={handleSellerRegister} type="submit" />
+                  <Button
+                    label="Submit"
+                    onClick={handleSellerRegister}
+                    type="submit"
+                  />
                 </div>
               </form>
             </div>

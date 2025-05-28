@@ -16,9 +16,10 @@ function Home() {
           <img
             src="/public/images/icons/sunsolaLogo.png"
             alt="logo"
-            width="95"
+            width="78"
           />
         }
+        line={{ borderLeft: "2px solid white" }}
         page="Home"
       />
       <div>
