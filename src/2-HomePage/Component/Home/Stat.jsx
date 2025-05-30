@@ -39,13 +39,13 @@ function Stat() {
 
           <div className="flex flex-col items-center ">
             <img
-              src="/public/icons/home/Internet.svg"
+              src="/public/icons/home/User.svg"
               alt="Internet"
               width={100}
               className="mb-2.5 mx-[140px]"
             />
-            <h3 className="text-xl font-semibold">2M+</h3>
-            <h4>People visit your website</h4>
+            <h3 className="text-xl font-semibold">5000+</h3>
+            <h4>User registers website</h4>
           </div>
         </div>
       </div>
