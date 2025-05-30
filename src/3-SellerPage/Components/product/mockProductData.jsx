@@ -12,7 +12,7 @@ const mockProductData = [
       dimensions: "2465x1134x30mm",
     },
     price: "2,585 บาท",
-    image: "/images/longi635.png",
+    image: "/public/images/seller/product1.png",
   },
   {
     brand: "Jinko",
@@ -27,7 +27,7 @@ const mockProductData = [
       dimensions: "2278x1134x30mm",
     },
     price: "2,640 บาท",
-    image: "/images/jinko580.png",
+    image: "/public/images/seller/product2.png",
   },
   {
     brand: "JA",
@@ -42,7 +42,7 @@ const mockProductData = [
       dimensions: "2465x1134x35mm",
     },
     price: "2,545 บาท",
-    image: "/images/ja625.png",
+    image: "/public/images/seller/product3.png",
   },
   
 ];
