@@ -19,7 +19,7 @@ export default function ThisShopProduct({ shopId = 101 }) {
             <img
               src={product.image}
               alt={`${product.brand} ${product.watt}`}
-              className="w-40 h-auto object-contain"
+              className="w-40 h-auto object-contain border border-[#193C76] rounded-lg"
             />
             <div>
               <h3 className="text-xl font-medium">

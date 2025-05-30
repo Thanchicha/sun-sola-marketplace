@@ -14,7 +14,7 @@ function ThisShop() {
           <SName
             Profile="/public/images/seller/shopLogo.png"
             ShopName="jiorgdopbp.Shop"
-            CompanyName="CompanyName"
+            CompanyName="jiorgdopbp.Shop"
           />
         </div>
         <div className="w-3/5 pl-3">

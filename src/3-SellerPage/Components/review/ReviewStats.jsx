@@ -80,6 +80,15 @@ const ReviewStats = () => {
       </div>
 
       <div className="flex space-x-2 mb-6">
+        <button
+          onClick={() => setSelectedRating(null)}
+          className={`border rounded-full px-4 py-1 text-sm hover:bg-blue-100 hover:border-[#193C76] ${
+            selectedRating === null ? "bg-blue-100 border-[#193C76]" : ""
+          }`}
+        >
+          <span className="text-[#193C76] font-bold">All</span>
+        </button>
+
         {[5, 4, 3, 2, 1].map((num) => (
           <button
             key={num}
@@ -102,8 +111,11 @@ const ReviewStats = () => {
         {filteredReviews.map((review, idx) => (
           <div key={idx} className="border-b pb-6">
             <div className="flex justify-between items-center">
-              <span className="font-medium">{review.name}</span>
-              <span className="text-xs text-gray-400">{review.date}</span>
+              <div className="flex gap-3 items-center">
+                <span className="font-medium">{review.name}</span>
+                <span className="text-xs text-gray-400">{review.date}</span>
+              </div>
+              <div className="mt-2">{renderStars(review.rating)}</div>
             </div>
             <div className="flex space-x-2 mt-2 overflow-x-auto">
               {review.images.map((src, i) => (
@@ -118,7 +130,6 @@ const ReviewStats = () => {
             <p className="mt-2 text-sm text-gray-700 leading-relaxed">
               {review.comment}
             </p>
-            <div className="mt-2">{renderStars(review.rating)}</div>
           </div>
         ))}
       </div>

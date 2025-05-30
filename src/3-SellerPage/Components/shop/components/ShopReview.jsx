@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Star } from "lucide-react";
+import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function ShopReview({ Title }) {
   return (
@@ -12,9 +13,9 @@ function ShopReview({ Title }) {
           <span className="text-[48px] font-bold text-[#22509E]">4.6</span>
           <span className="text-[#BBBBBB] text-[32px]">/5</span>
           <span className="text-[16px] text-[#000000]">(683 reviews)</span>
-          <a href="#" className="ml-auto text-[16px] text-[#8E8E8E] underline">
+          <Link to="review" className="ml-auto text-[16px] text-[#8E8E8E] underline">
             {">> See more reviews"}
-          </a>
+          </Link>
         </div>
         <div className="flex gap-1 mt-2">
           {[...Array(4)].map((_, i) => (
@@ -28,9 +29,9 @@ function ShopReview({ Title }) {
       </div>
       <div className="mb-6">
         <div className="text-[16px] text-[#000000] font-semibold mb-1">
-          {}Prasitthichok
+          {}Prasitthichok <span className="text-sm text-[#454545] font mb-3">04/04/2025 09:34 AM</span>
         </div>
-        <div className="text-sm text-[#454545] mb-3">04/04/2025 09:34 AM</div>
+        
         <div className="flex gap-3 mb-3">
           <img
             src="/public/images/seller/review1.png"
@@ -48,7 +49,7 @@ function ShopReview({ Title }) {
             className="w-[140px] h-[100px] rounded object-cover"
           />
         </div>
-        <p className="text-sm text-[#000000]">
+        <p className="text-[#000000]">
           บริการเยี่ยมครับ ผมติดตั้งไปที่บ้านเรียบร้อย ทีมงานมืออาชีพมาก ๆ
           มาถึงตรงเวลาและทำงานเรียบร้อยมาก
           การติดตั้งใช้เวลาประมาณครึ่งวันและอุปกรณ์ที่นำมาใช้ก็มีมาตรฐานสูงมากครับ
