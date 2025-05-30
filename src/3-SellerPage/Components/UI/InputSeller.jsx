@@ -10,7 +10,7 @@ function InputSeller({ label, type, id, value, onChange }) {
         type={type}
         id={id}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
         className="w-full border rounded-md px-3 py-2"
       />
     </div>

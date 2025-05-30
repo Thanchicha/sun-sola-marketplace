@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import Asterisk from "./Components/UI/Asterisk";
 import InputSeller from "./Components/UI/InputSeller";
+import mockCompanyData from "./Components/Information/mockCompanyData"; // ปรับ path ตามโครงสร้างโปรเจกต์
 
-function CompanyInform() {
+const useMock = true; // ตั้งค่านี้เพื่อสลับระหว่าง mock / API จริง
+
+
+function UpdateCompanyInform() {
   const [CompanyName, setCompanyName] = useState("");
   const [ShopName, setShopName] = useState("");
   const [Title, setTitle] = useState("");
@@ -42,10 +46,60 @@ function CompanyInform() {
     setShopImages((prev) => [...prev, ...imageUrls]); // show preview
   };
 
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      try {
+        if (useMock) {
+          const data = mockCompanyData;
+          setCompanyName(data.CompanyName);
+          setShopName(data.ShopName);
+          setTitle(data.Title);
+          setDetail(data.Detail);
+          setFacebook(data.Facebook);
+          setPhone(data.Phone);
+          setLine(data.Line);
+          setEmail(data.Email);
+          setWebsite(data.Website);
+          setImageLogo(data.LogoUrl);
+          setShopImages(data.ShopImageUrls);
+        } else {
+          const response = await axios.get(
+            "http://10.4.53.25:5008/sellerAddShop"
+          );
+          const data = response.data;
+          setCompanyName(data.CompanyName);
+          setShopName(data.ShopName);
+          setTitle(data.Title);
+          setDetail(data.Detail);
+          setFacebook(data.Facebook);
+          setPhone(data.Phone);
+          setLine(data.Line);
+          setEmail(data.Email);
+          setWebsite(data.Website);
+          setImageLogo(data.LogoUrl);
+          setShopImages(data.ShopImageUrls);
+        }
+      } catch (err) {
+        console.error("Error loading data:", err);
+      }
+    };
+
+    fetchCompanyData();
+  }, []);
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate required fields
+    if (imageLogoFile) {
+      formData.append("Logo", imageLogoFile);
+    }
+
+    shopImageFiles.forEach((file, i) => {
+      formData.append(`ShopImage${i}`, file);
+    });
+
     if (
       !CompanyName ||
       !ShopName ||
@@ -71,13 +125,11 @@ function CompanyInform() {
     formData.append("Email", Email);
     formData.append("Website", Website);
     formData.append("Logo", imageLogoFile);
-    shopImageFiles.forEach((file, i) =>
-      formData.append(`ShopImage${i}`, file)
-    );
+    shopImageFiles.forEach((file, i) => formData.append(`ShopImage${i}`, file));
 
     setLoading(true);
     try {
-      const response = await axios.post("http://your-api-url.com/company", formData, {
+      await axios.put("http://your-api-url.com/company/123", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Success! Company information submitted.");
@@ -213,8 +265,12 @@ function CompanyInform() {
                     <button
                       type="button"
                       onClick={() => {
-                        const updatedImages = shopImages.filter((_, i) => i !== index);
-                        const updatedFiles = shopImageFiles.filter((_, i) => i !== index);
+                        const updatedImages = shopImages.filter(
+                          (_, i) => i !== index
+                        );
+                        const updatedFiles = shopImageFiles.filter(
+                          (_, i) => i !== index
+                        );
                         setShopImages(updatedImages);
                         setShopImageFiles(updatedFiles);
                       }}
@@ -288,7 +344,9 @@ function CompanyInform() {
             <button
               type="submit"
               disabled={loading}
-              className={`px-6 py-2 rounded-md text-white ${loading ? "bg-blue-400" : "bg-blue-900"}`}
+              className={`px-6 py-2 rounded-md text-white ${
+                loading ? "bg-blue-400" : "bg-blue-900"
+              }`}
             >
               {loading ? "Submitting..." : "Next"}
             </button>
@@ -299,4 +357,4 @@ function CompanyInform() {
   );
 }
 
-export default CompanyInform;
+export default UpdateCompanyInform;
