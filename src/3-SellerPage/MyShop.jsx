@@ -30,7 +30,7 @@ function MyShop() {
         <div className="border-t-3 border-[#D9D9D9] my-[38px]">
           <div className="flex my-[38px]">
             <button className="ml-auto mt-4 md:mt-0">
-              <ButtonBlue to="/myshop/product" value="Update Product" />
+              <ButtonBlue to="/myshop/product/update" value="Update Product" />
             </button>
           </div>
         </div>

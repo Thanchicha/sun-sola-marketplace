@@ -7,9 +7,11 @@ import Home from "./2-HomePage/Home";
 import AllShop from "./2-HomePage/AllShop";
 import Shop from "./2-HomePage/Shop";
 
-import CompanyInform from "./3-SellerPage/CompanyInform";
+import CreateCompanyInform from "./3-SellerPage/CreateCompanyInform";
 import UpdateCompanyInform from "./3-SellerPage/UpdateCompanyInform";
-import Product from "./3-SellerPage/Product";
+import CreateProduct from "./3-SellerPage/CreateProduct";
+import UpdateProduct from "./3-SellerPage/UpdateProduct";
+
 import MyShop from "./3-SellerPage/MyShop";
 import SellerReview from "./3-SellerPage/SellerReview";
 
@@ -24,21 +26,25 @@ function App() {
     <>
       <Routes>
         <Route path="/login/forgetpassword" element={<ForgetPass />} />
-
         <Route path="/" element={<Home />} />
         <Route path="/allshop" element={<AllShop />} />
         <Route path="/allshop/shop" element={<Shop />} />
         <Route path="/allshop/shop/review" element={<ShopReview />} />
         <Route path="/allshop/shop/review/add" element={<AddReview />} />
-        <Route path="/allshop/shop/review/add/success" element={<SuccessReview />} />
-
-        <Route path="/myshop" element={<MyShop />} />
-        <Route path="/myshop/information" element={<CompanyInform />} />
-        <Route path="/myshop/information/update" element={<UpdateCompanyInform />} />
-        <Route path="/myshop/product" element={<Product />} />
-        <Route path="/myshop/review" element={<SellerReview />} />    
-
-         <Route path="/address" element={<AddressForm />} />
+        <Route
+          path="/allshop/shop/review/add/success"
+          element={<SuccessReview />}
+        />
+        <Route path="/myshop" element={<MyShop />} />{" "}
+        <Route path="/myshop/address" element={<AddressForm />} />
+        <Route path="/myshop/information" element={<CreateCompanyInform />} />
+        <Route
+          path="/myshop/information/update"
+          element={<UpdateCompanyInform />}
+        />
+        <Route path="/myshop/product" element={<CreateProduct />} />
+        <Route path="/myshop/product/update" element={<UpdateProduct />} />
+        <Route path="/myshop/review" element={<SellerReview />} />
       </Routes>
     </>
   );

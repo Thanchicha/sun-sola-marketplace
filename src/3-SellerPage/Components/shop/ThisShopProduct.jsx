@@ -2,7 +2,7 @@ import React from "react";
 import mockProductData from "../product/mockProductData";
 
 export default function ThisShopProduct({ shopId = 101 }) {
-  const products = mockProductData
+  const products = mockProductData;
   // [shopId] || [];
 
   return (
@@ -17,24 +17,17 @@ export default function ThisShopProduct({ shopId = 101 }) {
             className="flex flex-col md:flex-row items-center gap-6 border-b-3 border-[#D9D9D9] py-6"
           >
             <img
-              src={product.image}
-              alt={`${product.brand} ${product.watt}`}
+              src={product.Image}
+              alt={product.Name}
               className="w-40 h-auto object-contain border border-[#193C76] rounded-lg"
             />
             <div>
-              <h3 className="text-xl font-medium">
-                แผงโซล่าเซลล์ {product.brand} {product.watt} {product.type}
-              </h3>
-              <ul className="text-sm text-gray-700 list-disc list-inside mt-2">
-                <li>Maximum power(Pmax): {product.specs.pmax}</li>
-                <li>Open Circuit Voltage(Voc): {product.specs.voc}</li>
-                <li>Short Circuit Current(Isc): {product.specs.isc}</li>
-                <li>Operating Voltage(Vmp): {product.specs.vmp}</li>
-                <li>Operating Current(Imp): {product.specs.imp}</li>
-                <li>Dimensions: {product.specs.dimensions}</li>
-              </ul>
+              <h3 className="text-xl font-medium">{product.Name}</h3>
+              <p className="text-sm text-gray-700 whitespace-pre-line mt-2">
+                {product.Detail}
+              </p>
               <p className="text-lg text-blue-700 font-bold mt-2">
-                ราคา {product.price}
+                ราคา {product.Price} บาท
               </p>
             </div>
           </div>

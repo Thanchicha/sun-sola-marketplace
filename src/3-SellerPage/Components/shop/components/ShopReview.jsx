@@ -6,7 +6,7 @@ function ShopReview({ Title }) {
   return (
     <>
       <div className="mb-4">
-        <h2 className="text-[30px] font-semibold text-[#193C76] mb-2">
+        <h2 className="text-[28px] font-semibold text-[#193C76] mb-2">
           “{Title}”
         </h2>
         <div className="flex items-center gap-1">

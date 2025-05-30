@@ -1,50 +1,37 @@
 const mockProductData = [
   {
-    brand: "LONGi",
-    watt: "635w",
-    type: "N-type BIFACIAL",
-    specs: {
-      pmax: "635W",
-      voc: "57.39V",
-      isc: "13.97A",
-      vmp: "48.15V",
-      imp: "13.19A",
-      dimensions: "2465x1134x30mm",
-    },
-    price: "2,585 บาท",
-    image: "/public/images/seller/product1.png",
+    Name: "แผงโซล่าเซลล์ LONGi 635w N-type BIFACIAL",
+    Detail: `- Maximum power(Pmax): 635W
+- Open Circuit Voltage(Voc): 57.39V
+- Short Circuit Current(Isc): 13.97A
+- Operating Voltage(Vmp): 48.15V
+- Operating Current(Imp): 13.19A
+- Dimensions: 2465x1134x30mm`,
+    Price: 2585,
+    Image: "/images/seller/product1.png",
   },
   {
-    brand: "Jinko",
-    watt: "580w",
-    type: "N-type Mono half cell",
-    specs: {
-      pmax: "580W",
-      voc: "52.31V",
-      isc: "14.01A",
-      vmp: "43.35V",
-      imp: "13.38A",
-      dimensions: "2278x1134x30mm",
-    },
-    price: "2,640 บาท",
-    image: "/public/images/seller/product2.png",
+    Name: "แผงโซล่าเซลล์ Jinko 580w N-type Mono half cell",
+    Detail: `- Maximum power(Pmax): 580W
+- Open Circuit Voltage(Voc): 52.31V
+- Short Circuit Current(Isc): 14.01A
+- Operating Voltage(Vmp): 43.35V
+- Operating Current(Imp): 13.38A
+- Dimensions: 2278x1134x30mm`,
+    Price: 2640,
+    Image: "/images/seller/product2.png",
   },
   {
-    brand: "JA",
-    watt: "625w",
-    type: "N-type BIFACIAL",
-    specs: {
-      pmax: "625W",
-      voc: "52.77V",
-      isc: "15.16A",
-      vmp: "43.71V",
-      imp: "14.30A",
-      dimensions: "2465x1134x35mm",
-    },
-    price: "2,545 บาท",
-    image: "/public/images/seller/product3.png",
+    Name: "แผงโซล่าเซลล์ JA 625W N-type BIFACIAL ",
+    Detail: `- Maximum power(Pmax): 625w
+- Open Circuit Voltage(Voc): 52.77V
+- Short Circuit Current(Isc): 15.16A
+- Operating Voltage(Vmp): 43.71V
+- Operating Current(Imp): 14.30A
+- Dimensions: 2465x1134x35mm`,
+    Price: 2545,
+    Image: "/images/seller/product3.png",
   },
-  
 ];
 
 export default mockProductData;
