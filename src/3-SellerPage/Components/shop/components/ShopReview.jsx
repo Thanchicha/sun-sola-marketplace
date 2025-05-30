@@ -1,12 +1,12 @@
 import React from "react";
-import { Star } from "lucide-react";
+import { Link, Star } from "lucide-react";
 
-function ShopReview() {
+function ShopReview({ Title }) {
   return (
     <>
       <div className="mb-4">
         <h2 className="text-[30px] font-semibold text-[#193C76] mb-2">
-          “สร้างอนาคตสีเขียว เริ่มต้นด้วยพลังงานแสงอาทิตย์”
+          “{Title}”
         </h2>
         <div className="flex items-center gap-1">
           <span className="text-[48px] font-bold text-[#22509E]">4.6</span>
@@ -28,7 +28,7 @@ function ShopReview() {
       </div>
       <div className="mb-6">
         <div className="text-[16px] text-[#000000] font-semibold mb-1">
-          Prasitthichok
+          {}Prasitthichok
         </div>
         <div className="text-sm text-[#454545] mb-3">04/04/2025 09:34 AM</div>
         <div className="flex gap-3 mb-3">

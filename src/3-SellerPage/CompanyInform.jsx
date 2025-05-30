@@ -11,15 +11,15 @@ function CompanyInform() {
   const [Title, setTitle] = useState("");
   const [Detail, setDetail] = useState("");
   const [Facebook, setFacebook] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Line, setLine] = useState("");
-  const [Email, setEmail] = useState("");
+  const [PhoneCompany, setPhoneCompany] = useState("");
+  const [LineID, setLineID] = useState("");
+  const [CompanyEmail, setCompanyEmail] = useState("");
   const [Website, setWebsite] = useState("");
-  const [imageLogo, setImageLogo] = useState(null); // preview logo
-  const [imageLogoFile, setImageLogoFile] = useState(null); // logo file
+  const [Profile, setProfile] = useState(null); // preview logo
+  const [ProfileFile, setProfileFile] = useState(null); // logo file
 
-  const [shopImages, setShopImages] = useState([]); // preview array shop
-  const [shopImageFiles, setShopImageFiles] = useState([]); // shop array file
+  const [ShopImages, setShopImages] = useState([]); // preview array shop
+  const [ShopImageFiles, setShopImageFiles] = useState([]); // shop array file
 
   const [loading, setLoading] = useState(false);
 
@@ -27,13 +27,13 @@ function CompanyInform() {
     const file = event.target.files[0];
     if (!file) return;
 
-    setImageLogoFile(file);
-    setImageLogo(URL.createObjectURL(file)); // show preview
+    setProfileFile(file);
+    setProfile(URL.createObjectURL(file)); // show preview
   };
 
   const handleShopUpload = (event) => {
     const files = Array.from(event.target.files);
-    const remainingSlots = 6 - shopImages.length;
+    const remainingSlots = 6 - ShopImages.length;
 
     const selectedFiles = files.slice(0, remainingSlots);
     const imageUrls = selectedFiles.map((file) => URL.createObjectURL(file));
@@ -51,10 +51,10 @@ function CompanyInform() {
       !ShopName ||
       !Title ||
       !Detail ||
-      !Phone ||
-      !Email ||
-      !imageLogoFile ||
-      shopImageFiles.length === 0
+      !PhoneCompany ||
+      !CompanyEmail ||
+      !ProfileFile ||
+      ShopImageFiles.length === 0
     ) {
       alert("Please fill in all required fields.");
       return;
@@ -66,12 +66,12 @@ function CompanyInform() {
     formData.append("Title", Title);
     formData.append("Detail", Detail);
     formData.append("Facebook", Facebook);
-    formData.append("Phone", Phone);
-    formData.append("Line", Line);
-    formData.append("Email", Email);
+    formData.append("PhoneCompany", PhoneCompany);
+    formData.append("LineID", LineID);
+    formData.append("CompanyEmail", CompanyEmail);
     formData.append("Website", Website);
-    formData.append("Logo", imageLogoFile);
-    shopImageFiles.forEach((file, i) =>
+    formData.append("Profile", ProfileFile);
+    ShopImageFiles.forEach((file, i) =>
       formData.append(`ShopImage${i}`, file)
     );
 
@@ -106,10 +106,10 @@ function CompanyInform() {
                 className="hidden"
                 onChange={handleLogoUpload}
               />
-              {imageLogo ? (
+              {Profile ? (
                 <>
                   <img
-                    src={imageLogo}
+                    src={Profile}
                     alt="Uploaded Logo"
                     className="object-contain h-full"
                   />
@@ -117,8 +117,8 @@ function CompanyInform() {
                     type="button"
                     className="absolute top-2 right-2 bg-white rounded-full px-2"
                     onClick={() => {
-                      setImageLogo(null);
-                      setImageLogoFile(null);
+                      setProfile(null);
+                      setProfileFile(null);
                     }}
                   >
                     ✕
@@ -197,13 +197,13 @@ function CompanyInform() {
                 multiple
                 className="hidden"
                 onChange={handleShopUpload}
-                disabled={shopImages.length >= 6}
+                disabled={ShopImages.length >= 6}
               />
-              <span>+ Add picture ({shopImages.length}/6)</span>
+              <span>+ Add picture ({ShopImages.length}/6)</span>
             </label>
-            {shopImages.length > 0 && (
+            {ShopImages.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-4">
-                {shopImages.map((src, index) => (
+                {ShopImages.map((src, index) => (
                   <div key={index} className="relative">
                     <img
                       src={src}
@@ -213,8 +213,8 @@ function CompanyInform() {
                     <button
                       type="button"
                       onClick={() => {
-                        const updatedImages = shopImages.filter((_, i) => i !== index);
-                        const updatedFiles = shopImageFiles.filter((_, i) => i !== index);
+                        const updatedImages = ShopImages.filter((_, i) => i !== index);
+                        const updatedFiles = ShopImageFiles.filter((_, i) => i !== index);
                         setShopImages(updatedImages);
                         setShopImageFiles(updatedFiles);
                       }}
@@ -240,21 +240,21 @@ function CompanyInform() {
             <InputSeller
               label={
                 <>
-                  Phone <Asterisk />
+                  PhoneCompany <Asterisk />
                 </>
               }
               type="tel"
               id="PhoneCompany"
-              value={Phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={PhoneCompany}
+              onChange={(e) => setPhoneCompany(e.target.value)}
             />
             <div />
             <InputSeller
-              label="Line"
+              label="LineID"
               type="text"
-              id="Line"
-              value={Line}
-              onChange={(e) => setLine(e.target.value)}
+              id="LineID"
+              value={LineID}
+              onChange={(e) => setLineID(e.target.value)}
             />
             <InputSeller
               label={
@@ -263,9 +263,9 @@ function CompanyInform() {
                 </>
               }
               type="email"
-              id="Email"
-              value={Email}
-              onChange={(e) => setEmail(e.target.value)}
+              id="CompanyEmail"
+              value={CompanyEmail}
+              onChange={(e) => setCompanyEmail(e.target.value)}
             />
             <div />
             <InputSeller
