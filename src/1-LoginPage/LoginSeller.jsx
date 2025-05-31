@@ -65,7 +65,7 @@ function LoginSeller() {
                 className="flex flex-col gap-2"
               >
                 <InputField
-                  label="Organization Email"
+                  label="Email"
                   type="email"
                   id="Email"
                   value={Email}

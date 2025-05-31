@@ -27,26 +27,26 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login/forgetpassword" element={<ForgetPass />} />
+        {/* <Route path="/login/forgetpassword" element={<ForgetPass />} /> */}
         <Route path="/" element={<Home />} />
         <Route path="/allshop" element={<AllShop />} />
         <Route path="/allshop/shop/:id" element={<Shop />} />
-        <Route path="/allshop/shop/review" element={<ShopReview />} />
-        <Route path="/allshop/shop/review/add" element={<AddReview />} />
-        <Route path="/allshop/shop/review/update" element={<UpdateReview />} />
+        <Route path="/allshop/shop/:id/review" element={<ShopReview />} />
+        <Route path="/allshop/shop/:id/review/add" element={<AddReview />} />
+        <Route path="/allshop/shop/:id/review/update" element={<UpdateReview />} />
         <Route
           path="/allshop/shop/review/add/success"
           element={<SuccessReview />}
         />
-        <Route element={<RequireSeller />}>
-          <Route path="/myshop" element={<MyShop />} />
-          <Route path="/myshop/address" element={<AddressForm />} />
-          <Route path="/myshop/information" element={<CreateCompanyInform />} />
-          <Route path="/myshop/information/update" element={<UpdateCompanyInform />} />
-          <Route path="/myshop/product" element={<CreateProduct />} />
-          <Route path="/myshop/product/update" element={<UpdateProduct />} />
-          <Route path="/myshop/review" element={<SellerReview />} />
-        </Route>
+        {/* <Route element={<RequireSeller />}> */}
+          <Route path="/myshop/:id" element={<MyShop />} />
+          {/* <Route path="/myshop/:id/address" element={<AddressForm />} /> */}
+          <Route path="/myshop/:id/information" element={<CreateCompanyInform />} />
+          <Route path="/myshop/:id/information/update" element={<UpdateCompanyInform />} />
+          <Route path="/myshop/:id/product/" element={<CreateProduct />} />
+          <Route path="/myshop/:id/product//update" element={<UpdateProduct />} />
+          <Route path="/myshop/:id/review" element={<SellerReview />} />
+        {/* </Route> */}
       </Routes>
     </>
   );
