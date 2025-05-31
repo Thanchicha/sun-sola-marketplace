@@ -127,6 +127,18 @@ const ReviewStats = () => {
                 />
               ))}
             </div>
+            <div className="flex space-x-2 mt-2">
+              {review.reviewTypes.shop && (
+                <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full">
+                  Shop review
+                </span>
+              )}
+              {review.reviewTypes.product && (
+                <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">
+                  Product review
+                </span>
+              )}
+            </div>
             <p className="mt-2 text-sm text-gray-700 leading-relaxed">
               {review.comment}
             </p>
