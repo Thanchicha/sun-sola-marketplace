@@ -86,7 +86,7 @@ const AllShop = () => {
           <h2 className="text-lg font-semibold mb-4 text-blue-900">
             Recommended shops for you
           </h2>
-          {renderShops(recommendedShops, 3)}
+          <div className="px-40">{renderShops(recommendedShops, 3)}</div>
         </section>
 
         {/* Section: All shops */}
