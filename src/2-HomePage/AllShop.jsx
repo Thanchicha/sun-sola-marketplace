@@ -3,8 +3,18 @@ import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import { shopData } from "./Component/AllShop/AllShopMock";
 import { Link } from "react-router-dom";
+import { mockCompanyDataList } from "../3-SellerPage/Components/Information/mockCompanyData";
 
 const AllShop = () => {
+  const shopData = mockCompanyDataList.map((shop) => ({
+    id: shop.ShopID,
+    name: shop.ShopName,
+    location: "Thailand", // ถ้ายังไม่มี location จริงก็ mock ไปก่อน
+    image: shop.Profile,
+    rating: Math.floor(Math.random() * 2) + 4, // mock ดาว 4-5
+    reviews: Math.floor(Math.random() * 1000), // mock จำนวนรีวิว
+  }));
+
   const allShopsRef = useRef(null);
 
   const scrollToAllShops = () => {
@@ -13,7 +23,7 @@ const AllShop = () => {
 
   // แก้ให้ recommended กับ all ดึง 8 ร้าน (4x2)
   const nearbyShops = shopData.slice(0, 8);
-    const recommendedShops = [...shopData]
+  const recommendedShops = [...shopData]
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 6); // 3x2
   const allShops = shopData;
@@ -29,7 +39,7 @@ const AllShop = () => {
       <div className={`grid ${gridClass} gap-4`}>
         {shops.map((shop, index) => (
           <Link
-            to="shop"
+            to={`shop/${shop.id}`} // ส่งไอดีร้านไปใน URL
             key={index}
             className="border rounded-lg shadow hover:shadow-lg transition bg-white"
           >
@@ -61,7 +71,6 @@ const AllShop = () => {
     <>
       <Narbar icon={<LeftArrow />} page="All Shop" />
       <div className="mx-[40px] lg:mx-[160px] my-[40px] space-y-10">
-
         {/* ปุ่มลัดไปยัง All shops */}
         <div className="flex justify-end">
           <button
@@ -91,7 +100,9 @@ const AllShop = () => {
 
         {/* Section: All shops */}
         <section ref={allShopsRef}>
-          <h2 className="text-lg font-semibold mb-4 text-blue-900">All shops</h2>
+          <h2 className="text-lg font-semibold mb-4 text-blue-900">
+            All shops
+          </h2>
           {renderShops(allShops, 4)}
         </section>
       </div>

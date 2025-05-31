@@ -4,7 +4,7 @@ import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import Asterisk from "./Components/UI/Asterisk";
 import InputSeller from "./Components/UI/InputSeller";
-import mockCompanyData from "./Components/Information/mockCompanyData"; // ปรับ path ตามโครงสร้างโปรเจกต์
+// import mockCompanyData from "./Components/Information/mockCompanyData"; // ปรับ path ตามโครงสร้างโปรเจกต์
 
 const useMock = true; // ตั้งค่านี้เพื่อสลับระหว่าง mock / API จริง
 

@@ -19,6 +19,26 @@ function Login() {
         }
       );
       console.log(response.data);
+
+      // ✅ ตรวจสอบและจัดการข้อมูล user
+      if (response.data && response.data[0]) {
+        const user = response.data[0];
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            Name: `${user.Firstname} ${user.Lastname}`,
+            Email: user.Email,
+            Phone: user.Phone,
+            Role: "user", // เพิ่มตรงนี้
+          })
+        );
+
+        alert("Login Success");
+        window.location.reload(); // เพื่อให้อัปเดตชื่อบน Navbar
+      } else {
+        alert("Email or Password incorrect");
+      }
     } catch (err) {
       console.error("Login error:", err);
       alert("Something went wrong. Please try again.");
@@ -69,11 +89,7 @@ function Login() {
                   Forget Password?
                 </Link>
                 <div className="text-center pt-4 pb-10">
-                  <Button
-                    label="Login"
-                    onClick={handleUserLogin}
-                    type="submit"
-                  />
+                  <Button label="Submit" type="submit" />
                 </div>
               </form>
             </div>

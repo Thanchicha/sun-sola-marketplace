@@ -1,28 +1,78 @@
-const mockCompanyData = {
-  CompanyName: "jiorgdopbp.Shop",
-  ShopName: "jiorgdopbp.Shop",
-  Title: "สร้างอนาคตสีเขียว เริ่มต้นด้วยพลังงานแสงอาทิตย์",
-  Detail:
-    "Jiorgdopbp Solar ก่อตั้งขึ้นในปี พ.ศ. 2557 ด้วยความมุ่งมั่นที่จะนำพลังงานสะอาดจากแสงอาทิตย์มาใช้ให้เกิดประโยชน์สูงสุดในประเทศไทย เราเชี่ยวชาญด้าน การจำหน่ายและติดตั้งระบบโซลาร์เซลล์ครบวงจร ทั้งสำหรับบ้านพักอาศัย ธุรกิจ และโรงงานอุตสาหกรรมตลอดเวลากว่า 10 ปี ที่ผ่านมา เราได้ให้บริการลูกค้ามาแล้วมากกว่า 1,000 โครงการทั่วประเทศ ด้วยทีมวิศวกรและช่างผู้เชี่ยวชาญที่ได้รับการอบรมมาตรฐานสากล เราใส่ใจในทุกขั้นตอน ตั้งแต่การออกแบบระบบที่เหมาะสม การเลือกใช้วัสดุคุณภาพสูง ไปจนถึงการติดตั้งที่ได้มาตรฐาน เพื่อให้ลูกค้าทุกท่านได้รับประสิทธิภาพการผลิตพลังงานสูงสุดและผลตอบแทนที่คุ้มค่าที่สุด",
-  Facebook: "jjordgobpb Solar",
-  LineID: "@jjordgobpbsolar",
-  CompanyEmail: "contact@jjordgobpbsolar.com",
-  PhoneCompany: "099-123-4567",
-  Website: "https://www.jiorgdopbpsolar.com",
-  Profile: "/images/seller/shopLogo.png",
-  ShopImages: [
-    "/images/seller/store1.png",
-    "/images/seller/store2.png",
-    "/images/seller/store3.png",
-  ],
-};
-
-// {
-//
-//
-//
-//
-//
-// }
-
-export default mockCompanyData;
+export const mockCompanyDataList = [
+  {
+    ShopID: 100,
+    CompanyName: "jiorgdopbp.Shop",
+    ShopName: "jiorgdopbp.Shop",
+    Title: "สร้างอนาคตสีเขียว เริ่มต้นด้วยพลังงานแสงอาทิตย์",
+    Detail:
+      "Jiorgdopbp Solar ก่อตั้งขึ้นในปี พ.ศ. 2557 ด้วยความมุ่งมั่นที่จะนำพลังงานสะอาดจากแสงอาทิตย์มาใช้ให้เกิดประโยชน์สูงสุดในประเทศไทย...",
+    Facebook: "jjordgobpb Solar",
+    LineID: "@jjordgobpbsolar",
+    CompanyEmail: "contact@jjordgobpbsolar.com",
+    PhoneCompany: "099-123-4567",
+    Website: "https://www.jiorgdopbpsolar.com",
+    Profile: "/images/seller/shopLogo.png",
+    ShopImages: [
+      "/images/seller/store1.png",
+      "/images/seller/store2.png",
+      "/images/seller/store3.png",
+    ],
+  },
+  {
+    ShopID: 101,
+    CompanyName: "dtiotop.Shop",
+    ShopName: "dtiotop.Shop",
+    Title: "คุณภาพเกินราคา อุปกรณ์อิเล็กทรอนิกส์ครบวงจร",
+    Detail:
+      "Dtiotop เป็นผู้นำเข้าและจัดจำหน่ายอุปกรณ์อิเล็กทรอนิกส์คุณภาพดีจากทั่วโลก เรามีทีมวิศวกรที่พร้อมให้คำแนะนำด้านเทคนิค และบริการหลังการขายที่ใส่ใจ...",
+    Facebook: "dtiotop Shop",
+    LineID: "@dtiotop",
+    CompanyEmail: "support@dtiotop.com",
+    PhoneCompany: "088-456-7890",
+    Website: "https://www.dtiotop.com",
+    Profile: "/images/seller/shopLogo2.png",
+    ShopImages: [
+      "/images/seller/store4.png",
+      "/images/seller/store5.png",
+      "/images/seller/store6.png",
+    ],
+  },
+  {
+    ShopID: 102,
+    CompanyName: "olujtgfs.Shop",
+    ShopName: "olujtgfs.Shop",
+    Title: "เครื่องใช้ไฟฟ้าราคาถูก ส่งตรงจากโรงงาน",
+    Detail:
+      "Olujtgfs Shop ให้บริการจัดจำหน่ายเครื่องใช้ไฟฟ้าหลากหลายชนิด ด้วยราคาย่อมเยาและรับประกันสินค้าทุกชิ้น บริการส่งทั่วประเทศ...",
+    Facebook: "olujtgfs Shop",
+    LineID: "@olujtgfs",
+    CompanyEmail: "sales@olujtgfs.com",
+    PhoneCompany: "089-654-3210",
+    Website: "https://www.olujtgfs.com",
+    Profile: "/images/seller/shopLogo3.png",
+    ShopImages: [
+      "/images/seller/store7.png",
+      "/images/seller/store8.png",
+      "/images/seller/store9.png",
+    ],
+  },
+  {
+    ShopID: 103,
+    CompanyName: "olkuyhrfw.Shop",
+    ShopName: "olkuyhrfw.Shop",
+    Title: "โซลูชันเพื่อบ้านอัจฉริยะ พร้อมบริการติดตั้ง",
+    Detail:
+      "Olkuyhrfw Shop คือผู้ให้บริการระบบบ้านอัจฉริยะครบวงจร ด้วยเทคโนโลยีล้ำสมัยที่ช่วยให้ชีวิตสะดวก ปลอดภัย และประหยัดพลังงาน...",
+    Facebook: "olkuyhrfw Smart Home",
+    LineID: "@olkuyhrfw",
+    CompanyEmail: "info@olkuyhrfw.com",
+    PhoneCompany: "095-222-3344",
+    Website: "https://www.olkuyhrfw.com",
+    Profile: "/images/seller/shopLogo4.png",
+    ShopImages: [
+      "/images/seller/store10.png",
+      "/images/seller/store11.png",
+      "/images/seller/store12.png",
+    ],
+  },
+];

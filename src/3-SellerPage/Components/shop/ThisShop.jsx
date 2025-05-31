@@ -5,70 +5,74 @@ import ShopReview from "./components/ShopReview";
 import ShopImage from "./components/ShopImage";
 import ShopDetail from "./components/ShopDetail";
 import ShopContact from "./components/ShopContact";
-import mockCompanyData from "../Information/mockCompanyData";
+// import mockCompanyData from "../Information/mockCompanyData";
 
-const useMock = true; // ตั้งเป็น false ถ้าใช้ API จริง
+const useMock = false;
 
-function ThisShop() {
-  const [CompanyName, setCompanyName] = useState("");
-  const [ShopName, setShopName] = useState("");
-  const [Title, setTitle] = useState("");
-  const [Detail, setDetail] = useState("");
-  const [Facebook, setFacebook] = useState("");
-  const [PhoneCompany, setPhoneCompany] = useState("");
-  const [LineID, setLineID] = useState("");
-  const [CompanyEmail, setCompanyEmail] = useState("");
-  const [Website, setWebsite] = useState("");
-  const [Profile, setProfile] = useState(null);
-  const [ShopImages, setShopImages] = useState([]);
+function ThisShop({ shopData }) {
+  if (!shopData) return null;
 
-  useEffect(() => {
-    const fetchCompanyData = async () => {
-      try {
-        const data = useMock
-          ? mockCompanyData
-          : (await axios.get("http://10.4.53.25:5008/sellerAddShop")).data;
+  const {
+    CompanyName,
+    ShopName,
+    Title,
+    Detail,
+    Facebook,
+    PhoneCompany,
+    LineID,
+    CompanyEmail,
+    Website,
+    Profile,
+    ShopImages,
+  } = shopData;
+  // const [CompanyName, setCompanyName] = useState("");
+  // const [ShopName, setShopName] = useState("");
+  // const [Title, setTitle] = useState("");
+  // const [Detail, setDetail] = useState("");
+  // const [Facebook, setFacebook] = useState("");
+  // const [PhoneCompany, setPhoneCompany] = useState("");
+  // const [LineID, setLineID] = useState("");
+  // const [CompanyEmail, setCompanyEmail] = useState("");
+  // const [Website, setWebsite] = useState("");
+  // const [Profile, setProfile] = useState(null);
+  // const [ShopImages, setShopImages] = useState([]);
 
-        // const data = response.data;
+  // useEffect(() => {
+  //   const fetchCompanyData = async () => {
+  //     try {
+  //       const data = useMock
+  //         ? mockCompanyData
+  //         : (await axios.get(`http://10.4.53.25:5008/showShopImage/${shopId}`))
+  //             .data;
 
-        // if (Array.isArray(data) && data.length > 0) {
-        //   const company = data[0]; // หรือจะเลือกบริษัทตาม index/dynamic ก็ได้
+  //       if (Array.isArray(data) && data.length > 0) {
+  //         const company = data[0];
 
-        //   setCompanyName(company.CompanyName);
-        //   setShopName(company.ShopName);
-        //   setTitle(company.Title);
-        //   setDetail(company.Detail);
-        //   setFacebook(company.Facebook);
-        //   setPhoneCompany(company.PhoneCompany);
-        //   setLineID(company.LineID);
-        //   setCompanyEmail(company.CompanyEmail);
-        //   setWebsite(company.Website);
-        //   setProfile(company.Profile);
-        //   setShopImages(
-        //     Array.isArray(company.ShopImages) ? company.ShopImages : []
-        //   );
-        // } else {
-        //   console.warn("Data is empty or not an array");
-        // }
+  //         setCompanyName(company.CompanyName);
+  //         setShopName(company.ShopName);
+  //         setTitle(company.Title);
+  //         setDetail(company.Detail);
+  //         setFacebook(company.Facebook);
+  //         setPhoneCompany(company.PhoneCompany);
+  //         setLineID(company.LineID);
+  //         setCompanyEmail(company.CompanyEmail);
+  //         setWebsite(company.Website);
+  //         setProfile(company.Profile);
+  //         setShopImages(
+  //           Array.isArray(company.ShopImages) ? company.ShopImages : []
+  //         );
+  //       } else {
+  //         console.warn("Data is empty or not an array");
+  //       }
+  //     } catch (err) {
+  //       console.error("Error loading data:", err);
+  //     }
+  //   };
 
-        setCompanyName(data.CompanyName);
-        setShopName(data.ShopName);
-        setTitle(data.Title);
-        setDetail(data.Detail);
-        setFacebook(data.Facebook);
-        setPhoneCompany(data.PhoneCompany);
-        setLineID(data.LineID);
-        setCompanyEmail(data.CompanyEmail);
-        setWebsite(data.Website);
-        setProfile(data.Profile);
-        setShopImages(Array.isArray(data.ShopImages) ? data.ShopImages : []);
-      } catch (err) {
-        console.error("Error loading data:", err);
-      }
-    };
-
-    fetchCompanyData();
-  }, []);
+  //   if (shopId) {
+  //     fetchCompanyData();
+  //   }
+  // }, [shopId]);
 
   return (
     <>

@@ -92,11 +92,7 @@ function RegisUser() {
                   onChange={setConfirmPassword}
                 />
                 <div className="text-center py-8 pb-12">
-                  <Button
-                    label="Submit"
-                    onClick={handleUserRegister}
-                    type="submit"
-                  />
+                  <Button label="Submit" type="submit" />
                 </div>
               </form>
             </div>
