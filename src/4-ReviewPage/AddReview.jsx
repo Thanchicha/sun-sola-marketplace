@@ -10,6 +10,16 @@ export default function AddReview() {
   const [review, setReview] = useState("");
   const [files, setFiles] = useState([null, null, null, null]);
   const [status, setStatus] = useState("");
+  const [reviewTypes, setReviewTypes] = useState([]); // eg. ['shop', 'product']
+  const toggleReviewType = (type) => {
+  setReviewTypes((prev) =>
+    prev.includes(type)
+      ? prev.filter((t) => t !== type) // ถ้ามีอยู่แล้ว กดซ้ำ = เอาออก
+      : [...prev, type] // ถ้ายังไม่มี = เพิ่มเข้าไป
+  );
+};
+
+
 
   const handleFileChange = (index, file) => {
     const newFiles = [...files];
@@ -26,26 +36,34 @@ export default function AddReview() {
     files.forEach((file, index) => {
       if (file) formData.append(`file${index + 1}`, file);
     });
+    if (reviewTypes.length === 0) {
+    setStatus("กรุณาเลือกประเภทของรีวิวอย่างน้อย 1 อย่าง");
+    return;
+       }
 
-    try {
-      const response = await fetch("https://your-backend-api.com/api/review", {
-        method: "POST",
-        body: formData,
-      });
+  formData.append("reviewTypes", JSON.stringify(reviewTypes));
 
-      if (response.ok) {
-        setStatus("ส่งรีวิวสำเร็จ");
-        setRating(0);
-        setReview("");
-        setFiles([null, null, null, null]);
-      } else {
-        setStatus("เกิดข้อผิดพลาดในการส่งรีวิว");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setStatus("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์");
+      try {
+    const response = await fetch("https://your-backend-api.com/api/review", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setStatus("ส่งรีวิวสำเร็จ");
+      setRating(0);
+      setReview("");
+      setFiles([null, null, null, null]);
+      setReviewTypes([]); // ล้างประเภทรีวิวที่เลือกไว้
+    } else {
+      setStatus("เกิดข้อผิดพลาดในการส่งรีวิว");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    setStatus("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์");
+  }
+}; // ✅ ปิด function handleSubmit ตรงนี้ ถูกต้องแล้ว
+
 
   return (
     <>
@@ -95,6 +113,35 @@ export default function AddReview() {
           ))}
         </div>
 
+        <p className="mb-2">ประเภทของรีวิว</p>
+<div className="flex gap-3 mb-4">
+  <button
+  type="button"
+  onClick={() => toggleReviewType("shop")}
+  className={`cursor-pointer px-4 py-2 rounded-full border ${
+    reviewTypes.includes("shop")
+      ? "bg-blue-900 text-white"
+      : "border-blue-900 text-blue-900 bg-white"
+  }`}
+>
+  Shop review
+</button>
+
+<button
+  type="button"
+  onClick={() => toggleReviewType("product")}
+  className={`cursor-pointer px-4 py-2 rounded-full border ${
+    reviewTypes.includes("product")
+      ? "bg-blue-900 text-white"
+      : "border-blue-900 text-blue-900 bg-white"
+  }`}
+>
+  Product review
+</button>
+
+</div>
+
+
         {/* เขียนรีวิว */}
         <p className="mb-2">เขียนรีวิวของคุณ</p>
         <textarea
@@ -105,13 +152,15 @@ export default function AddReview() {
           className="w-full p-3 border border-blue-900 rounded-xl focus:outline-none resize-none mb-4"
         />
 
+        <div className="flex justify-center">
         {/* ปุ่ม Submit */}
         <button
           onClick={handleSubmit}
-          className="w-full py-2 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition"
+          className="w-40 py-2 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition"
         >
           Submit
         </button>
+        </div>
 
         {status && (
           <p className="text-center text-sm mt-4 text-gray-600">{status}</p>
