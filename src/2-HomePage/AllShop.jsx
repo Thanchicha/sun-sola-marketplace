@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
-import { shopData } from "./Component/AllShop/AllShopMock";
 import { Link } from "react-router-dom";
 import { mockCompanyDataList } from "../3-SellerPage/Components/Information/mockCompanyData";
 

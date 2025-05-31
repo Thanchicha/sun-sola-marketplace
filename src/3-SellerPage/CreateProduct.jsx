@@ -1,15 +1,55 @@
-import React, { useState } from "react";
-import axios from "axios"; // อย่าลืม import axios นะครับ
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import Asterisk from "./Components/UI/Asterisk";
 import InputSeller from "./Components/UI/InputSeller";
+import mockProductDataList from "./Components/product/mockProductData";
 
 function Product() {
-  const [products, setProducts] = useState([
-    { name: "", detail: "", price: "", image: null, imageFile: null },
-  ]);
+  const { id: shopId } = useParams();
+  const useMock = true;
+  const [products, setProducts] = useState([]);
   const [deleteIndex, setDeleteIndex] = useState(null);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        if (useMock) {
+          const mockData = mockProductDataList[shopId] || [];
+          setProducts(
+            mockData.map((p) => ({
+              name: p.Name,
+              detail: p.Detail,
+              price: p.Price,
+              image: p.Image,
+              imageFile: null,
+            }))
+          );
+        } else {
+          const res = await axios.get(
+            `http://10.4.53.25:5008/sellerProduct/${shopId}`
+          );
+          const apiData = res.data;
+          setProducts(
+            apiData.map((p) => ({
+              productId: p.id, // เพิ่มตรงนี้ (key ชื่อ id อาจแตกต่างตาม API)
+              name: p.name,
+              detail: p.detail,
+              price: p.price,
+              image: p.imageUrl,
+              imageFile: null,
+            }))
+          );
+        }
+      } catch (err) {
+        console.error("โหลดข้อมูลสินค้าไม่สำเร็จ:", err);
+      }
+    };
+
+    fetchProductData();
+  }, [shopId]);
 
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
@@ -34,12 +74,70 @@ function Product() {
     ]);
   };
 
+  const handleUpdateProduct = async (index, productId) => {
+    const product = products[index];
+
+    if (!product.name || !product.detail || !product.price) {
+      alert("กรุณากรอกข้อมูลสินค้าให้ครบทุกช่อง");
+      return;
+    }
+    if (isNaN(product.price) || Number(product.price) <= 0) {
+      alert("กรุณาใส่ราคาสินค้าให้ถูกต้อง");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("name", product.name);
+      formData.append("detail", product.detail);
+      formData.append("price", product.price);
+
+      if (product.imageFile) {
+        formData.append("image", product.imageFile);
+        formData.append("imageName", product.imageFile.name);
+      }
+
+      await axios.put(
+        `http://10.4.53.25:5008/sellerUpdateProduct/${productId}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      alert("แก้ไขข้อมูลสินค้าสำเร็จ ✅");
+    } catch (error) {
+      console.error("แก้ไขข้อมูลสินค้าไม่สำเร็จ:", error);
+      alert("ไม่สามารถแก้ไขข้อมูลสินค้าได้ ❌");
+    }
+  };
+
   const handleDeleteProduct = () => {
     if (deleteIndex === null) return;
     const updated = [...products];
     updated.splice(deleteIndex, 1);
     setProducts(updated);
     setDeleteIndex(null);
+  };
+
+  const handleDeleteProductAPI = async (productId, index) => {
+    try {
+      await axios.delete(
+        `http://10.4.53.25:5008/sellerDeleteProduct/${productId}`
+      );
+
+      // ลบสินค้าออกจาก state หลังลบ API สำเร็จ
+      const updated = [...products];
+      updated.splice(index, 1);
+      setProducts(updated);
+
+      alert("ลบสินค้าสำเร็จ ✅");
+    } catch (error) {
+      console.error("ลบสินค้าไม่สำเร็จ:", error);
+      alert("ไม่สามารถลบสินค้าได้ ❌");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -68,8 +166,8 @@ function Product() {
         formData.append("name", product.name);
         formData.append("detail", product.detail);
         formData.append("price", product.price);
-        formData.append("image", product.imageFile); // ไฟล์จริง
-        formData.append("imageName", product.imageFile.name); // ⬅️ เพิ่มชื่อไฟล์
+        formData.append("image", product.imageFile);
+        formData.append("imageName", product.imageFile.name); // 👈 ส่งชื่อไฟล์จริง
 
         await axios.post("http://10.4.53.25:5008/sellerAddProduct", formData, {
           headers: {
