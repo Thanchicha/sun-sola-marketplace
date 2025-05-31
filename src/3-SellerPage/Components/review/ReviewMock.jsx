@@ -1,169 +1,169 @@
 // mockReviews.js
 export const ReviewMock = [
   {
-    name: "Prasitthichok",
-    date: "04/04/2025  09:34 AM",
-    rating: 4,
-    images: [
+    Username: "Prasitthichok",
+    reviewDate: "04/04/2025  09:34 AM",
+    Score: 4,
+    Image: [
       "/public/images/review/pic1-1.png",
       "/public/images/review/pic1-2.png",
       "/public/images/review/pic1-3.png",
     ],
-    comment:
+    Detail:
       "บริการดีมากครับ ผู้ดูแลให้คำปรึกษาดีมากเลยครับ ตัวสินค้าตรวจเช็คแล้วมีคุณภาพได้มาตรฐาน ทางบริษัทมีความน่าเชื่อถือ จะติดปัญหาก็คือเรื่องระยะเวลาการจัดส่งและติดตั้งสินค้าที่ล่าช้ากว่าที่กำหนดไว้หน่อย แต่โดยรวมดีมาก ประทับใจครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Narongrit",
-    date: "23/03/2025  10:12 AM",
-    rating: 5,
-    images: [
+    Username: "Narongrit",
+    reviewDate: "23/03/2025  10:12 AM",
+    Score: 5,
+    Image: [
       "/public/images/review/pic2-1.png",
       "/public/images/review/pic2-2.png",
     ],
-    comment:
+    Detail:
       "ก่อนติดตั้งผมมีคำถามและข้อสงสัยเยอะมากเลยครับเกี่ยวกับระบบโซลาร์เซลล์ ทั้งเรื่องงบประมาณ การผลิตไฟ ความคุ้มค่าในระยะยาว ซึ่งทางทีมงานของบริษัทให้ข้อมูลละเอียดครบถ้วน ตอบคำถามแบบตรงไปตรงมา และไม่มีการยัดเยียดขายของ ทำให้เรารู้สึกเชื่อมั่น และตัดสินใจได้ง่ายขึ้นมาก จุดนี้ขอชมว่าให้บริการแบบมืออาชีพจริง ๆ ครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: false,
     },
   },
   {
-    name: "Nantapong",
-    date: "12/03/2025  06:19 AM",
-    rating: 5,
-    images: [
+    Username: "Nantapong",
+    reviewDate: "12/03/2025  06:19 AM",
+    Score: 5,
+    Image: [
       "/public/images/review/pic3-1.png",
       "/public/images/review/pic3-2.png",
       "/public/images/review/pic3-3.png",
       "/public/images/review/pic3-4.png",
     ],
-    comment:
+    Detail:
       "เมื่อถึงวันติดตั้งทีมช่างมาทำงานตรงเวลา อุปกรณ์ครบ ไม่มีตกหล่น ใช้เวลาทำงานไม่นานก็เรียบร้อย แถมยังเก็บงานได้สะอาดมากครับ ไม่มีเศษวัสดุเหลือทิ้งไว้ให้เจ้าของบ้านต้องมาทำความสะอาดเองเลยจุดที่ผมชอบที่สุดก็คือหลังติดตั้งเสร็จทีมงานที่มาติดตั้งให้ยังสาธิตวิธีการใช้งานแอป ดูพลังงานให้ด้วย เข้าใจง่ายและใช้งานได้จริงครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: false,
     },
   },
   {
-    name: "Duangkamon",
-    date: "09/03/2025  05:21 AM",
-    rating: 4,
-    images: ["/public/images/review/pic4.png"],
-    comment:
+    Username: "Duangkamon",
+    reviewDate: "09/03/2025  05:21 AM",
+    Score: 4,
+    Image: ["/public/images/review/pic4.png"],
+    Detail:
       "โดยรวมคุ้มค่ากับเงินที่จ่ายไป แต่ถ้าราคาอุปกรณ์บางอย่างจะยืดหยุ่นหรือต่อรองได้มากกว่านี้อีกนิดก็จะดีมากค่ะ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: false,
     },
   },
   {
-    name: "Khunsamonkengngan",
-    date: "26/02/2025  11:48 AM",
-    rating: 4,
-    images: [
+    Username: "Khunsamonkengngan",
+    reviewDate: "26/02/2025  11:48 AM",
+    Score: 4,
+    Image: [
       "/public/images/review/pic5-1.png",
       "/public/images/review/pic5-2.png",
     ],
-    comment:
+    Detail:
       "เรื่องราคาถือว่าสูงอยู่พอสมควร ถ้าเทียบกับการลงทุนทั่ว ๆ ไป แต่ก็เข้าใจได้เพราะเป็นของที่ต้องใช้คุณภาพและความปลอดภัยสูง แต่ส่วนที่ฉันคิดว่าน่าปรับปรุงได้คือออปชั่นเสริมบางอย่างที่ราคาแรง เช่น การเพิ่มแบตเตอรี่หรือระบบสำรองไฟ ซึ่งถ้ามีโปรโมชันหรือทางเลือกที่ยืดหยุ่นมากกว่านี้ก็จะดีมาก อย่างไรก็ตาม โดยรวมก็ยังถือว่าคุ้มค่ากับสิ่งที่ได้รับค่ะ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Akkarasamphong",
-    date: "18/03/2025  07:06 AM",
-    rating: 4,
-    images: [
+    Username: "Akkarasamphong",
+    reviewDate: "18/03/2025  07:06 AM",
+    Score: 4,
+    Image: [
       "/public/images/review/pic6-1.png",
       "/public/images/review/pic6-2.png",
     ],
-    comment:
+    Detail:
       "ติดตั้งรวดเร็ว เก็บงานเรียบร้อย ระบบโซลาร์ที่ได้ก็ใช้งานได้ดีตามที่โฆษณาไว้ เห็นผลชัดเรื่องค่าไฟลดลงหลังใช้งานประมาณเดือนนึง",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Kittisak",
-    date: "16/03/2025  07:58 PM",
-    rating: 3,
-    images: [
+    Username: "Kittisak",
+    reviewDate: "16/03/2025  07:58 PM",
+    Score: 3,
+    Image: [
       "/public/images/review/pic7-1.jpg",
       "/public/images/review/pic7-2.jpg",
     ],
-    comment:
+    Detail:
       "บริการดีมาก พนักงานมีความรู้และให้ข้อมูลละเอียด เป็นกันเอง แต่การติดตั้งใช้เวลานานกว่าที่คาดไว้พอสมควร และบางช่วงติดต่อลำบากนิดหน่อย ต้องตามเองหลายครั้ง โดยรวมยังถือว่าโอเค แต่ควรปรับปรุงเรื่องการติดตามงานให้มากขึ้นครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: false,
     },
   },
   {
-    name: "Suchada",
-    date: "2/03/2025  03:03 PM",
-    rating: 2,
-    images: [
+    Username: "Suchada",
+    reviewDate: "2/03/2025  03:03 PM",
+    Score: 2,
+    Image: [
       "/public/images/review/pic8-1.jpg",
       "/public/images/review/pic8-2.jpeg",
     ],
-    comment:
+    Detail:
       "สินค้าดูมีคุณภาพก็จริง แต่การประสานงานของทีมงานยังไม่เป็นระบบ ต้องโทรตามหลายครั้ง ไม่แจ้งสถานะการจัดส่งให้ชัดเจน ทำให้เสียเวลาและวางแผนอะไรลำบาก ความน่าเชื่อถือของบริษัทลดลงเพราะการบริการหลังการขายค่ะ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Phikainongbanphaeo",
-    date: "27/02/2025  01:27 PM",
-    rating: 2,
-    images: [],
-    comment:
+    Username: "Phikainongbanphaeo",
+    reviewDate: "27/02/2025  01:27 PM",
+    Score: 2,
+    Image: [],
+    Detail:
       "เริ่มต้นดีมาก ให้คำปรึกษาอย่างมืออาชีพ แต่พอถึงขั้นตอนการติดตั้ง กลับมีความล่าช้าเกินกว่า 3 สัปดาห์ แถมยังไม่มีการแจ้งล่วงหน้า ต้องโทรตามเองตลอด รู้สึกผิดหวังกับกระบวนการหลังการขายครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: false,
     },
   },
   {
-    name: "Sasivimon",
-    date: "19/02/2025  02:11 PM",
-    rating: 1,
-    images: ["/public/images/review/pic10-1.jpg"],
-    comment:
+    Username: "Sasivimon",
+    reviewDate: "19/02/2025  02:11 PM",
+    Score: 1,
+    Image: ["/public/images/review/pic10-1.jpg"],
+    Detail:
       "บริการแย่มาก พนักงานพูดจาไม่ใส่ใจ เมื่อติดปัญหาแล้วติดต่อกลับไปไม่มีใครรับผิดชอบให้ ต้องตามเรื่องเองหลายรอบจนเหนื่อย เสียความรู้สึกและไม่คิดจะใช้บริการอีกค่ะ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Nattawut",
-    date: "01/02/2025  00:11 PM",
-    rating: 3,
-    images: ["/public/images/review/pic11-1.jpg"],
-    comment:
+    Username: "Nattawut",
+    reviewDate: "01/02/2025  00:11 PM",
+    Score: 3,
+    Image: ["/public/images/review/pic11-1.jpg"],
+    Detail:
       "ตัวสินค้ามีคุณภาพดีและการให้คำปรึกษาก็ถือว่าโอเคครับ ทีมงานตอบคำถามได้ชัดเจนและดูมีความรู้ แต่ติดปัญหาที่การนัดติดตั้งเลื่อนหลายครั้ง ทำให้ต้องปรับแผนงานของบ้านใหม่หลายรอบ ถ้าการจัดการเรื่องเวลาดีกว่านี้ จะน่าประทับใจกว่านี้ครับ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },
   },
   {
-    name: "Waraporn",
-    date: "14/01/2025  03:43 PM",
-    rating: 3,
-    images: [],
-    comment:
+    Username: "Waraporn",
+    reviewDate: "14/01/2025  03:43 PM",
+    Score: 3,
+    Image: [],
+    Detail:
       "สินค้าที่ได้รับตรงตามสเปก มีใบรับประกันและรายละเอียดครบถ้วน รู้สึกมั่นใจในมาตรฐานของแผงและอุปกรณ์ประกอบ แต่การติดตั้งยังไม่เรียบร้อย 100% ในครั้งแรก ต้องให้ทีมเข้ามาเก็บงานซ้ำ ส่วนตัวคิดว่าเป็นร้านที่มีของดี แต่ในเรื่องบริการและระบบจัดการยังไม่สม่ำเสมอเท่าที่ควรค่ะ",
-    reviewTypes: {
+    Category: {
       shop: true,
       product: true,
     },

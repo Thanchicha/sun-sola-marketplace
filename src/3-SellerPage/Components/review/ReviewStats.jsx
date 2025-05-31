@@ -5,12 +5,12 @@ import { ReviewMock } from "./ReviewMock";
 
 const ReviewStats = () => {
   const [data, setData] = useState({
-    averageRating: 4.6,
+    averageScore: 4.6,
     totalReviews: 683,
     starCounts: [562, 81, 33, 5, 2],
   });
 
-  const [selectedRating, setSelectedRating] = useState(null);
+  const [selectedScore, setSelectedScore] = useState(null);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -39,8 +39,8 @@ const ReviewStats = () => {
     </div>
   );
 
-  const filteredReviews = selectedRating
-    ? reviews.filter((review) => review.rating === selectedRating)
+  const filteredReviews = selectedScore
+    ? reviews.filter((review) => review.Score === selectedScore)
     : reviews;
 
   return (
@@ -51,7 +51,7 @@ const ReviewStats = () => {
         <div className="w-1/2 flex flex-col items-center">
           <div className="flex items-center mb-2">
             <span className="text-4xl font-bold text-[#22509E] mr-2">
-              {data.averageRating}
+              {data.averageScore}
             </span>
             <span className="text-gray-500">/5</span>
           </div>
@@ -59,7 +59,7 @@ const ReviewStats = () => {
             {data.totalReviews} reviews
           </p>
           <div className="flex space-x-1 mb-4">
-            {renderStars(Math.round(data.averageRating))}
+            {renderStars(Math.round(data.averageScore))}
           </div>
         </div>
 
@@ -81,9 +81,9 @@ const ReviewStats = () => {
 
       <div className="flex space-x-2 mb-6">
         <button
-          onClick={() => setSelectedRating(null)}
+          onClick={() => setSelectedScore(null)}
           className={`border rounded-full px-4 py-1 text-sm hover:bg-blue-100 hover:border-[#193C76] ${
-            selectedRating === null ? "bg-blue-100 border-[#193C76]" : ""
+            selectedScore === null ? "bg-blue-100 border-[#193C76]" : ""
           }`}
         >
           <span className="text-[#193C76] font-bold">All</span>
@@ -93,10 +93,10 @@ const ReviewStats = () => {
           <button
             key={num}
             onClick={() =>
-              setSelectedRating(num === selectedRating ? null : num)
+              setSelectedScore(num === selectedScore ? null : num)
             }
             className={`border rounded-full px-4 py-1 text-sm hover:bg-blue-100 hover:border-[#193C76] ${
-              selectedRating === num ? "bg-blue-100 border-[#193C76]" : ""
+              selectedScore === num ? "bg-blue-100 border-[#193C76]" : ""
             }`}
           >
             <div className="flex items-center space-x-1">
@@ -112,13 +112,13 @@ const ReviewStats = () => {
           <div key={idx} className="border-b pb-6">
             <div className="flex justify-between items-center">
               <div className="flex gap-3 items-center">
-                <span className="font-medium">{review.name}</span>
-                <span className="text-xs text-gray-400">{review.date}</span>
+                <span className="font-medium">{review.Username}</span>
+                <span className="text-xs text-gray-400">{review.reviewDate}</span>
               </div>
-              <div className="mt-2">{renderStars(review.rating)}</div>
+              <div className="mt-2">{renderStars(review.Score)}</div>
             </div>
             <div className="flex space-x-2 mt-2 overflow-x-auto">
-              {review.images.map((src, i) => (
+              {review.Image.map((src, i) => (
                 <img
                   key={i}
                   src={src}
@@ -128,8 +128,9 @@ const ReviewStats = () => {
               ))}
             </div>
             <div className="flex space-x-2 mt-2">
-              {review.reviewTypes?.shop && (
-  <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
+
+              {review.Category.shop && (
+    <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
     Shop review
   </span>
 )}
@@ -141,7 +142,7 @@ const ReviewStats = () => {
 )}
             </div>
             <p className="mt-2 text-sm text-gray-700 leading-relaxed">
-              {review.comment}
+              {review.Detail}
             </p>
           </div>
         ))}

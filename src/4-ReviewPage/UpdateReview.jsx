@@ -1,22 +1,27 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
-
+import axios from "axios";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
+import reviewMock from "./mock/reviewMock";
 
-export default function AddReview() {
-  const [rating, setRating] = useState(0);
+const API_BASE_URL = "https://your-backend-api.com/api";
+
+export default function UpdateReview() {
+  const [rating, setRating] = useState(reviewMock.Score);
   const [hover, setHover] = useState(0);
-  const [review, setReview] = useState("");
+  const [review, setReview] = useState(reviewMock.Detail);
   const [files, setFiles] = useState([null, null, null, null]);
   const [status, setStatus] = useState("");
-  const [reviewTypes, setReviewTypes] = useState([]); // eg. ['shop', 'product']
+  const [reviewTypes, setReviewTypes] = useState(
+    Object.entries(reviewMock.Category)
+      .filter(([_, val]) => val)
+      .map(([key]) => key)
+  );
+
   const toggleReviewType = (type) => {
-    setReviewTypes(
-      (prev) =>
-        prev.includes(type)
-          ? prev.filter((t) => t !== type) // ถ้ามีอยู่แล้ว กดซ้ำ = เอาออก
-          : [...prev, type] // ถ้ายังไม่มี = เพิ่มเข้าไป
+    setReviewTypes((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
     );
   };
 
@@ -26,65 +31,62 @@ export default function AddReview() {
     setFiles(newFiles);
   };
 
+  // ✅ รวมฟังก์ชัน uploadImage ไว้ในไฟล์เดียว
+  const uploadImage = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    return response.data.filename;
+  };
+
+  // ✅ รวมฟังก์ชัน updateReview ไว้ในไฟล์เดียว
+  const updateReview = async (reviewId, reviewData) => {
+    const response = await axios.put(`${API_BASE_URL}/review/${reviewId}`, reviewData, {
+      headers: { "Content-Type": "application/json" },
+    });
+    return response.data;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (Category.length === 0) {
+    if (reviewTypes.length === 0) {
       setStatus("กรุณาเลือกประเภทของรีวิวอย่างน้อย 1 อย่าง");
       return;
     }
 
     try {
       const uploadedFileNames = await Promise.all(
-        files.filter((f) => f).map((file) => uploadImage(file))
+        files.filter((f) => f).map(uploadImage)
       );
 
-      // 🟦 สร้าง Category object ให้ตรง mock
+      const now = new Date();
+      const reviewDate = now.toISOString();
+
       const categoryObj = {
-        shop: Category.includes("shop"),
-        product: Category.includes("product"),
+        shop: reviewTypes.includes("shop"),
+        product: reviewTypes.includes("product"),
       };
 
-      // 🟦 วันที่และเวลา
-      const now = new Date();
-      const reviewDate = now
-        .toLocaleString("en-GB", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        })
-        .replace(",", "");
+      const reviewData = {
+        Username: reviewMock.Username,
+        reviewDate,
+        Score: rating,
+        Image: [...reviewMock.Image, ...uploadedFileNames],
+        Detail: review,
+        Category: categoryObj,
+      };
 
-      const response = await fetch("https://your-backend-api.com/api/review", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Username: "Anonymous", // หรือดึงจากระบบ login
-          reviewDate,
-          Score,
-          Image: uploadedFileNames,
-          Detail: review,
-          Category: categoryObj,
-        }),
-      });
+      await updateReview("12345", reviewData); // 🔁 เปลี่ยน ID ตามจริง
+      setStatus("อัปเดตรีวิวสำเร็จ");
 
-      if (response.ok) {
-        setStatus("ส่งรีวิวสำเร็จ");
-        setScore(0);
-        setReview("");
-        setFiles([null, null, null, null]);
-        setCategory([]);
-      } else {
-        setStatus("เกิดข้อผิดพลาดในการส่งรีวิว");
-      }
     } catch (error) {
       console.error("Error:", error);
-      setStatus("ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์");
+      setStatus("เกิดข้อผิดพลาดในการอัปเดตรีวิว");
     }
   };
 
@@ -92,7 +94,6 @@ export default function AddReview() {
     <>
       <Narbar icon={<LeftArrow />} page="Review" />
       <div className="mx-[190px] my-[65px]">
-        {/* ให้คะแนน */}
         <p className="mb-2">คุณภาพของสินค้า</p>
         <div className="flex gap-2 mb-4">
           {[1, 2, 3, 4, 5].map((star) => (
@@ -109,7 +110,6 @@ export default function AddReview() {
           ))}
         </div>
 
-        {/* Upload รูป/วิดีโอ */}
         <p className="mb-2">เพิ่มรูปภาพและวิดีโอเพื่อรีวิวสินค้า</p>
         <div className="grid grid-cols-4 gap-3 mb-4">
           {files.map((file, index) => (
@@ -163,7 +163,6 @@ export default function AddReview() {
           </button>
         </div>
 
-        {/* เขียนรีวิว */}
         <p className="mb-2">เขียนรีวิวของคุณ</p>
         <textarea
           value={review}
@@ -174,7 +173,6 @@ export default function AddReview() {
         />
 
         <div className="flex justify-center">
-          {/* ปุ่ม Submit */}
           <button
             onClick={handleSubmit}
             className="w-40 py-2 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition"
