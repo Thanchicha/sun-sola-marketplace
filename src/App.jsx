@@ -17,6 +17,7 @@ import SellerReview from "./3-SellerPage/SellerReview";
 
 import ShopReview from "./4-ReviewPage/ShopReview";
 import AddReview from "./4-ReviewPage/AddReview";
+import UpdateReview from "./4-ReviewPage/UpdateReview";
 import SuccessReview from "./4-ReviewPage/SuccessReview";
 
 import AddressForm from "./3-SellerPage/Components/Information/AdressForm";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/allshop/shop" element={<Shop />} />
         <Route path="/allshop/shop/review" element={<ShopReview />} />
         <Route path="/allshop/shop/review/add" element={<AddReview />} />
+        <Route path="/allshop/shop/review/update" element={<UpdateReview />} />
         <Route
           path="/allshop/shop/review/add/success"
           element={<SuccessReview />}

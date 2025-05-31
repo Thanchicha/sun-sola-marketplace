@@ -8,7 +8,6 @@ import mockCompanyData from "./Components/Information/mockCompanyData"; // ป�
 
 const useMock = true; // ตั้งค่านี้เพื่อสลับระหว่าง mock / API จริง
 
-
 function UpdateCompanyInform() {
   const [CompanyName, setCompanyName] = useState("");
   const [ShopName, setShopName] = useState("");
