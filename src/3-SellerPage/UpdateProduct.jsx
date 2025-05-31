@@ -218,24 +218,26 @@ function UpdateProduct() {
         {/* Modal */}
         {deleteIndex !== null && (
           <div className="fixed inset-0 bg-white/30 backdrop-blur-sm flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-lg shadow-md w-80">
-              <p className="text-lg mb-4">คุณต้องการลบ product ใช่หรือไม่?</p>
-              <div className="flex justify-end space-x-3">
-                <button
-                  onClick={() => setDeleteIndex(null)}
-                  className="px-3 py-1 rounded bg-gray-300 hover:bg-gray-400"
-                >
-                  ยกเลิก
-                </button>
-                <button
-                  onClick={handleDeleteProduct}
-                  className="px-3 py-1 rounded bg-red-600 text-white hover:bg-red-700"
-                >
-                  ลบ
-                </button>
-              </div>
-            </div>
-          </div>
+    <div className="bg-gray-100 p-6 rounded-lg shadow-md w-80">
+      <p className="text-lg mb-4 text-center">
+        Do you want to remove a product from your shop?
+      </p>
+      <div className="flex justify-center space-x-4">
+        <button
+          onClick={() => setDeleteIndex(null)}
+          className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleDeleteProduct}
+          className="px-4 py-2 rounded bg-blue-900 text-white hover:bg-blue-600"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
         )}
       </div>
     </>

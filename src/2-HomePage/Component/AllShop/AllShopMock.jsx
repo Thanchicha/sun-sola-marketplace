@@ -3,97 +3,97 @@ export const shopData = [
     name: "jjorgdopbp solar",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/jiorgdopbp.png", // หรือใช้รูป placeholder
+    rating: 4,
+    reviews: 683,
+  },
+  {
+    name: "dtiotop",
+    location: "ประเวศ, กรุงเทพฯ",
+    image:
+      "/public/images/allshop/dtiotop.jpg", // หรือใช้รูป placeholder
+    rating: 3,
+    reviews: 306,
+  },
+  {
+    name: "olujtgfs",
+    location: "ประเวศ, กรุงเทพฯ",
+    image:  
+      "/public/images/allshop/olujtgfs.jpg", // หรือใช้รูป placeholder
     rating: 4,
     reviews: 256,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "olkuyhrfw",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
-    rating: 5,
-    reviews: 256,
-  },
-  {
-    name: "jjorgdopbp solar",
-    location: "ประเวศ, กรุงเทพฯ",
-    image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
-    rating: 4.5,
-    reviews: 256,
-  },
-  {
-    name: "jjorgdopbp solar",
-    location: "ประเวศ, กรุงเทพฯ",
-    image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/olkuyhrfw.jpg", // หรือใช้รูป placeholder
     rating: 4,
-    reviews: 256,
+    reviews: 497,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "jqftggikh",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/jqftggikh.jpg", // หรือใช้รูป placeholder
     rating: 5,
-    reviews: 256,
+    reviews: 555,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "qpkjhmnfd",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/qpkjhmnfd.jpg", // หรือใช้รูป placeholder
     rating: 4.5,
-    reviews: 256,
+    reviews: 488,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "whlfnklo",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/whlfnklo.jpg", // หรือใช้รูป placeholder
     rating: 4,
-    reviews: 256,
+    reviews: 477,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "loiukjgfgdf",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
-    rating: 5,
-    reviews: 256,
-  },
-  {
-    name: "jjorgdopbp solar",
-    location: "ประเวศ, กรุงเทพฯ",
-    image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
-    rating: 4.5,
-    reviews: 256,
-  },
-  {
-    name: "jjorgdopbp solar",
-    location: "ประเวศ, กรุงเทพฯ",
-    image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/loiukjgfgdf.png", // หรือใช้รูป placeholder
     rating: 4,
-    reviews: 256,
+    reviews: 312,
   },
   {
-    name: "jjorgdopbp solar",
+    name: "ljkfddshop",
     location: "ประเวศ, กรุงเทพฯ",
     image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
-    rating: 5,
-    reviews: 256,
-  },
-  {
-    name: "jjorgdopbp solar",
-    location: "ประเวศ, กรุงเทพฯ",
-    image:
-      "https://cdn.pixabay.com/photo/2018/01/15/07/51/solar-panel-3087582_1280.jpg", // หรือใช้รูป placeholder
+      "/public/images/allshop/ljkfddshop.jpg", // หรือใช้รูป placeholder
     rating: 4.5,
-    reviews: 256,
+    reviews: 456,
+  },
+  {
+    name: "ruouhdfjkgfd",
+    location: "ประเวศ, กรุงเทพฯ",
+    image:
+      "/public/images/allshop/ruouhdfjkgfd.jpg", // หรือใช้รูป placeholder
+    rating: 4,
+    reviews: 399,
+  },
+  {
+    name: "thlgfjlgh",
+    location: "ประเวศ, กรุงเทพฯ",
+    image:
+      "/public/images/allshop/thlgfjlgh.jpg", // หรือใช้รูป placeholder
+    rating: 5,
+    reviews: 300,
+  },
+  {
+    name: "sdfgkhlugfth",
+    location: "ประเวศ, กรุงเทพฯ",
+    image:
+      "/public/images/allshop/sdfgkhlugfth.jpg", // หรือใช้รูป placeholder
+    rating: 4.5,
+    reviews: 440,
   },
   
   // เพิ่มข้อมูลร้านอื่นได้ตามต้องการ
