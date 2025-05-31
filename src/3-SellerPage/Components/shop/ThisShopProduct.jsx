@@ -1,9 +1,33 @@
-import React from "react";
-import mockProductData from "../product/mockProductData";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import mockProductDataList from "../product/mockProductData";
 
-export default function ThisShopProduct({ shopId = 101 }) {
-  const products = mockProductData;
-  // [shopId] || [];
+const useMock = true;
+
+export default function ThisShopProduct({ ShopID }) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    if (!ShopID) return;
+
+    if (useMock) {
+      setProducts(mockProductDataList[ShopID] || []);
+    } else {
+      axios
+        .get(`http://10.4.53.25:5008/showProduct/${ShopID}`)
+        .then((res) => {
+          if (Array.isArray(res.data)) {
+            setProducts(res.data);
+          } else {
+            setProducts([]);
+          }
+        })
+        .catch((err) => {
+          console.error("Error loading products:", err);
+          setProducts([]);
+        });
+    }
+  }, [ShopID]);
 
   return (
     <div>

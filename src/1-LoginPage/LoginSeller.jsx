@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ✅ เพิ่ม useNavigate
 import axios from "axios";
 import LoginBG from "./Components/LoginBG";
 import Button from "./Components/UI/Button";
@@ -8,24 +8,39 @@ import InputField from "./Components/UI/InputField";
 function LoginSeller() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  // console.log(email, Password);
-  
+  const navigate = useNavigate(); // ✅ ใช้ navigate
+
   const handleSellerLogin = async () => {
     try {
-      const response = await axios.post(
-        "http://10.4.53.25:5008/sellerLogin",
-        {
-          Email,
-          Password,
-        }
-      );
-      console.log(response.data);
+      const response = await axios.post("http://10.4.53.25:5008/sellerLogin", {
+        Email,
+        Password,
+      });
+
+      if (response.data && response.data[0]) {
+        const user = response.data[0]; // ✅ แก้ชื่อเป็น user (ไม่ใช่ seller เพราะใช้ตัวแปร user ด้านล่าง)
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            Name: `${user.Firstname} ${user.Lastname}`,
+            Email: user.Email,
+            Phone: user.Phone,
+            Role: "seller",
+          })
+        );
+
+        alert("Login Success");
+        navigate("/myshop"); // ✅ เด้งไปหน้า /myshop ทันทีหลัง login
+      } else {
+        alert("Email or Password incorrect");
+      }
     } catch (err) {
       console.error("Login error:", err);
       alert("Something went wrong. Please try again.");
     }
   };
-  
+
   return (
     <>
       <title>Login for Seller | Sun Sola</title>
@@ -70,11 +85,7 @@ function LoginSeller() {
                   Forget Password?
                 </Link>
                 <div className="text-center pt-4 pb-10">
-                  <Button
-                    label="Login"
-                    onClick={handleSellerLogin}
-                    type="submit"
-                  />
+                  <Button label="Submit" type="submit" />
                 </div>
               </form>
             </div>

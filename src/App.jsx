@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import RequireSeller from "./RequireSeller";
 
 import ForgetPass from "./1-LoginPage/ForgetPass";
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/login/forgetpassword" element={<ForgetPass />} />
         <Route path="/" element={<Home />} />
         <Route path="/allshop" element={<AllShop />} />
-        <Route path="/allshop/shop" element={<Shop />} />
+        <Route path="/allshop/shop/:id" element={<Shop />} />
         <Route path="/allshop/shop/review" element={<ShopReview />} />
         <Route path="/allshop/shop/review/add" element={<AddReview />} />
         <Route path="/allshop/shop/review/update" element={<UpdateReview />} />
@@ -37,16 +38,15 @@ function App() {
           path="/allshop/shop/review/add/success"
           element={<SuccessReview />}
         />
-        <Route path="/myshop" element={<MyShop />} />{" "}
-        <Route path="/myshop/address" element={<AddressForm />} />
-        <Route path="/myshop/information" element={<CreateCompanyInform />} />
-        <Route
-          path="/myshop/information/update"
-          element={<UpdateCompanyInform />}
-        />
-        <Route path="/myshop/product" element={<CreateProduct />} />
-        <Route path="/myshop/product/update" element={<UpdateProduct />} />
-        <Route path="/myshop/review" element={<SellerReview />} />
+        <Route element={<RequireSeller />}>
+          <Route path="/myshop" element={<MyShop />} />
+          <Route path="/myshop/address" element={<AddressForm />} />
+          <Route path="/myshop/information" element={<CreateCompanyInform />} />
+          <Route path="/myshop/information/update" element={<UpdateCompanyInform />} />
+          <Route path="/myshop/product" element={<CreateProduct />} />
+          <Route path="/myshop/product/update" element={<UpdateProduct />} />
+          <Route path="/myshop/review" element={<SellerReview />} />
+        </Route>
       </Routes>
     </>
   );

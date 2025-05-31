@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; // อย่าลืม import axios นะครับ
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import Asterisk from "./Components/UI/Asterisk";
@@ -34,6 +35,7 @@ function Product() {
   };
 
   const handleDeleteProduct = () => {
+    if (deleteIndex === null) return;
     const updated = [...products];
     updated.splice(deleteIndex, 1);
     setProducts(updated);
@@ -41,47 +43,50 @@ function Product() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  for (const product of products) {
-    if (
-      !product.name ||
-      !product.detail ||
-      !product.price ||
-      !product.imageFile
-    ) {
-      alert("กรุณากรอกข้อมูลสินค้าให้ครบทุกช่อง");
-      return;
-    }
-  }
-
-  try {
+    // Validate
     for (const product of products) {
-      const formData = new FormData();
-      formData.append("name", product.name);
-      formData.append("detail", product.detail);
-      formData.append("price", product.price);
-      formData.append("image", product.imageFile); // ไฟล์ภาพสินค้า
-
-      // 🔻 เปลี่ยน endpoint ให้ตรงกับ backend API ที่คุณใช้
-      await axios.post("https://your-api.com/products", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      if (
+        !product.name ||
+        !product.detail ||
+        !product.price ||
+        !product.imageFile
+      ) {
+        alert("กรุณากรอกข้อมูลสินค้าให้ครบทุกช่อง");
+        return;
+      }
+      if (isNaN(product.price) || Number(product.price) <= 0) {
+        alert("กรุณาใส่ราคาสินค้าให้ถูกต้อง");
+        return;
+      }
     }
 
-    alert("เพิ่มข้อมูลสินค้าสำเร็จ ✅");
+    try {
+      for (const product of products) {
+        const formData = new FormData();
+        formData.append("name", product.name);
+        formData.append("detail", product.detail);
+        formData.append("price", product.price);
+        formData.append("image", product.imageFile); // ไฟล์จริง
+        formData.append("imageName", product.imageFile.name); // ⬅️ เพิ่มชื่อไฟล์
 
-    // รีเซ็ตฟอร์ม
-    setProducts([
-      { name: "", detail: "", price: "", image: null, imageFile: null },
-    ]);
-  } catch (error) {
-    console.error("เกิดข้อผิดพลาด:", error);
-    alert("ไม่สามารถเพิ่มข้อมูลสินค้าได้ ❌");
-  }
-};
+        await axios.post("http://10.4.53.25:5008/sellerAddProduct", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+      }
+
+      alert("เพิ่มข้อมูลสินค้าสำเร็จ ✅");
+      setProducts([
+        { name: "", detail: "", price: "", image: null, imageFile: null },
+      ]);
+    } catch (error) {
+      console.error("เกิดข้อผิดพลาด:", error);
+      alert("ไม่สามารถเพิ่มข้อมูลสินค้าได้ ❌");
+    }
+  };
 
   return (
     <>

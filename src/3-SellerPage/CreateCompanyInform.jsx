@@ -77,7 +77,7 @@ function CreateCompanyInform() {
 
     setLoading(true);
     try {
-      const response = await axios.post("http://your-api-url.com/company", formData, {
+      const response = await axios.post("http://10.4.53.25:5008/sellerAddShop", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Success! Company information submitted.");

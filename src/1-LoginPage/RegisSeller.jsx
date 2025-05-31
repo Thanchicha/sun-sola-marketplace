@@ -128,11 +128,7 @@ function RegisSeller() {
                   onChange={setConfirmPassword}
                 />
                 <div className="text-center py-8 pb-12">
-                  <Button
-                    label="Submit"
-                    onClick={handleSellerRegister}
-                    type="submit"
-                  />
+                  <Button label="Submit" type="submit" />
                 </div>
               </form>
             </div>
