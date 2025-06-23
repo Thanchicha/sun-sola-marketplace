@@ -45,9 +45,22 @@ function Narbar({ icon, line, page }) {
         <div className="flex gap-4">
           {user ? (
             <div className="flex items-center gap-4 text-white">
-              <span className="font-medium">
-                {user.Role === "seller" ? "🛒" : "👤"} {user.Name}
+              <span class="flex">
+                {user.role === "seller" ? (
+                  <img
+                    src="/public/images/icons/user.png"
+                    alt="Seller Profile"
+                    class="w-10 rounded-full"
+                  />
+                ) : (
+                  <img
+                    src="/public/images/icons/user.png"
+                    alt="User Profile"
+                    class="w-10 rounded-full"
+                  />
+                )}
               </span>
+              <span class="text-xl">{user.name}</span>
               <button
                 onClick={handleLogout}
                 className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded text-white"

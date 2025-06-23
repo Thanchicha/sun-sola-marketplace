@@ -11,29 +11,50 @@ function RegisUser() {
   const [ConfirmPassword, setConfirmPassword] = useState("");
 
   const handleUserRegister = async () => {
-    try {
-      if (Password !== ConfirmPassword) {
-        alert("Password is not match!");
-        return;
-      }
+    const email = Email.trim();
+    const name = Name.trim();
+    const password = Password;
+    const confirmPassword = ConfirmPassword;
 
+    if (!email || !name || !password || !confirmPassword) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
       const response = await axios.post(
         "http://10.4.53.25:5008/customerRegister",
         {
-          Email,
-          Name,
-          Password,
+          Email: email,
+          Name: name,
+          Password: password,
         }
       );
 
       console.log(response.data);
 
       alert("Registration successful!");
-      window.location.href = "/login";
+      window.location.href = "/";
     } catch (err) {
       console.error("Signup User error:", err);
-      if (err.response && err.response.data && err.response.data.message) {
-        alert(err.response.data.message);
+      if (err.response?.data) {
+        alert(err.response.data);
       } else {
         alert("Something went wrong. Please try again.");
       }

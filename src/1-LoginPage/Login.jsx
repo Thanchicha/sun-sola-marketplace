@@ -10,27 +10,29 @@ function Login() {
   const [Password, setPassword] = useState("");
 
   const handleUserLogin = async () => {
+    console.log("Submitting:", { Email, Password }); // เช็คค่าที่ส่งไป
+
     try {
       const response = await axios.post(
         "http://10.4.53.25:5008/customerLogin",
         {
-          Email,
-          Password,
+          Email: Email, // แก้จาก email → Email
+          Password: Password, // แก้จาก password → Password
         }
       );
-      console.log(response.data);
+      console.log("Response:", response.data);
 
       // ✅ ตรวจสอบและจัดการข้อมูล user
-      if (response.data && response.data[0]) {
-        const user = response.data[0];
+      if (response.data && response.data.customer) {
+        const user = response.data.customer;
 
         localStorage.setItem(
           "user",
           JSON.stringify({
-            Name: `${user.Firstname} ${user.Lastname}`,
-            Email: user.Email,
-            Phone: user.Phone,
-            Role: "user", // เพิ่มตรงนี้
+            id: user.id, // ✅ เพิ่มบรรทัดนี้!
+            name: user.name,
+            email: user.email,
+            role: user.role,
           })
         );
 
@@ -44,6 +46,8 @@ function Login() {
       alert("Something went wrong. Please try again.");
     }
   };
+  // console.log("response.data", response.data);
+  // console.log("user object", response.data.customer);
 
   return (
     <>

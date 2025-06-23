@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-
+import axios from "axios";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 
 export default function AddReview() {
+  const { id: shopId, user_id: userId } = useParams();
+
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [review, setReview] = useState("");
@@ -29,56 +32,47 @@ export default function AddReview() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (Category.length === 0) {
+    if (reviewTypes.length === 0) {
       setStatus("กรุณาเลือกประเภทของรีวิวอย่างน้อย 1 อย่าง");
       return;
     }
 
     try {
-      const uploadedFileNames = await Promise.all(
-        files.filter((f) => f).map((file) => uploadImage(file))
-      );
+      const formData = new FormData();
 
-      // 🟦 สร้าง Category object ให้ตรง mock
-      const categoryObj = {
-        shop: Category.includes("shop"),
-        product: Category.includes("product"),
-      };
+      formData.append("Category", reviewTypes.join(","));
+      formData.append("Score", rating);
+      formData.append("Detail", review);
 
-      // 🟦 วันที่และเวลา
       const now = new Date();
-      const reviewDate = now
-        .toLocaleString("en-GB", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        })
-        .replace(",", "");
+      const reviewDate = now.toISOString().slice(0, 19).replace("T", " ");
+      formData.append("reviewDate", reviewDate);
+      formData.append("Customers_ID", userId);
+      formData.append("ShopID", shopId);
 
-      const response = await fetch("https://your-backend-api.com/api/review", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Username: "Anonymous", // หรือดึงจากระบบ login
-          reviewDate,
-          Score,
-          Image: uploadedFileNames,
-          Detail: review,
-          Category: categoryObj,
-        }),
+      // ✅ แนบไฟล์ทั้งหมด
+      files.forEach((file) => {
+        if (file) {
+          formData.append("images", file);
+        }
       });
 
-      if (response.ok) {
+      const response = await axios.post(
+        "http://10.4.53.25:5008/customerReviewWithImage",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.status === 200) {
         setStatus("ส่งรีวิวสำเร็จ");
-        setScore(0);
+        setRating(0);
         setReview("");
         setFiles([null, null, null, null]);
-        setCategory([]);
+        setReviewTypes([]);
       } else {
         setStatus("เกิดข้อผิดพลาดในการส่งรีวิว");
       }
@@ -128,7 +122,7 @@ export default function AddReview() {
               )}
               <input
                 type="file"
-                accept="image/*,video/*"
+                accept="image/*"
                 onChange={(e) => handleFileChange(index, e.target.files[0])}
                 className="hidden"
               />
