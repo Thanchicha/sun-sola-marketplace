@@ -1,33 +1,63 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import axios from "axios";
 import Narbar from "../0-Component/Navbar";
 import LeftArrow from "../0-Component/UI/LeftArrow";
 import { Link } from "react-router-dom";
 import { mockCompanyDataList } from "../3-SellerPage/Components/Information/mockCompanyData";
 
+const useMock = true;
+
 const AllShop = () => {
-  const shopData = mockCompanyDataList.map((shop) => ({
-    id: shop.ShopID,
-    name: shop.ShopName,
-    location: "Thailand", // ถ้ายังไม่มี location จริงก็ mock ไปก่อน
-    image: shop.Profile,
-    rating: Math.floor(Math.random() * 2) + 4, // mock ดาว 4-5
-    reviews: Math.floor(Math.random() * 1000), // mock จำนวนรีวิว
-  }));
+  const [shopData, setShopData] = useState([]);
 
   const allShopsRef = useRef(null);
+
+  useEffect(() => {
+    const fetchShops = async () => {
+      try {
+        let shops = [];
+
+        if (useMock) {
+          console.log("Using mock data...");
+          shops = mockCompanyDataList;
+        } else {
+          const response = await axios.get(
+            "http://10.4.53.25:5008/showAllShop"
+          );
+          shops = response.data;
+        }
+
+        const formatted = shops.map((shop) => ({
+          id: shop.ShopID ?? shop.id,
+          name: shop.ShopName ?? shop.name,
+          location: shop.Location || "Thailand",
+          image:
+            shop.Profile?.startsWith?.("/public") && !useMock
+              ? `http://10.4.53.25:5008${shop.Profile}`
+              : shop.image ?? shop.Profile,
+          rating: Math.round(shop.AverageScore) || 0, // เปลี่ยนตรงนี้
+          reviews: shop.TotalReviews || 0, // เปลี่ยนตรงนี้
+        }));
+
+        setShopData(formatted);
+      } catch (error) {
+        console.error("Failed to fetch shops", error);
+      }
+    };
+
+    fetchShops();
+  }, []);
 
   const scrollToAllShops = () => {
     allShopsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // แก้ให้ recommended กับ all ดึง 8 ร้าน (4x2)
   const nearbyShops = shopData.slice(0, 8);
   const recommendedShops = [...shopData]
     .sort((a, b) => b.rating - a.rating)
-    .slice(0, 6); // 3x2
+    .slice(0, 6);
   const allShops = shopData;
 
-  // ใช้ class ตายตัวแทน dynamic tailwind (tailwind ไม่รองรับ string interpolation ใน class)
   const renderShops = (shops, columns = 4) => {
     const gridClass =
       columns === 4
@@ -80,14 +110,6 @@ const AllShop = () => {
             <span>&raquo;</span>
           </button>
         </div>
-
-        {/* Section: Shops near you */}
-        <section>
-          <h2 className="text-lg font-semibold mb-4 text-blue-900">
-            Shops near you
-          </h2>
-          {renderShops(nearbyShops, 4)}
-        </section>
 
         {/* Section: Recommended shops for you */}
         <section>

@@ -2,6 +2,7 @@ import React from "react";
 import Narbar from "../0-Component/Navbar";
 import Slogan from "./Component/Home/Slogan";
 import Stat from "./Component/Home/Stat";
+import Recommend from "./Component/Home/Recommend";
 import Banner from "./Component/Home/Banner";
 import About from "./Component/Home/About";
 import Type from "./Component/Home/Type";
@@ -25,6 +26,7 @@ function Home() {
       <div>
         <Slogan />
         <Stat />
+        <Recommend />
         <Banner />
         <About />
         <Type />

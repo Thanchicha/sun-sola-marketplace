@@ -8,7 +8,7 @@ import InputField from "./Components/UI/InputField";
 function LoginSeller() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const navigate = useNavigate(); // ✅ ใช้ navigate
+  const navigate = useNavigate();
 
   const handleSellerLogin = async () => {
     try {
@@ -16,28 +16,42 @@ function LoginSeller() {
         Email,
         Password,
       });
+      console.log("Login response:", response.data);
 
-      if (response.data && response.data[0]) {
-        const user = response.data[0]; // ✅ แก้ชื่อเป็น user (ไม่ใช่ seller เพราะใช้ตัวแปร user ด้านล่าง)
+      if (response.data && response.data.seller) {
+        const user = response.data.seller;
+        const shop = user.shop;
 
         localStorage.setItem(
           "user",
           JSON.stringify({
-            Name: `${user.Firstname} ${user.Lastname}`,
-            Email: user.Email,
-            Phone: user.Phone,
-            Role: "seller",
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            shopId: shop ? shop.id : null, // ✅ เก็บ shopId ถ้ามี
           })
         );
 
         alert("Login Success");
-        navigate("/myshop"); // ✅ เด้งไปหน้า /myshop ทันทีหลัง login
+
+        if (!shop) {
+          // ❌ ยังไม่มีร้าน
+          navigate(`/${user.id}/createshop`);
+        } else {
+          // ✅ มีร้านแล้ว
+          navigate(`/${user.id}/myshop/${shop.id}`);
+        }
       } else {
         alert("Email or Password incorrect");
       }
     } catch (err) {
       console.error("Login error:", err);
-      alert("Something went wrong. Please try again.");
+      if (err.response) {
+        alert(err.response.data || "Something went wrong. Please try again.");
+      } else {
+        alert("Network error or server not responding.");
+      }
     }
   };
 

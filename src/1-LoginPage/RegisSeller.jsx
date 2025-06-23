@@ -14,30 +14,65 @@ function RegisSeller() {
   const [ConfirmPassword, setConfirmPassword] = useState("");
 
   const handleSellerRegister = async () => {
-    try {
-      if (Password !== ConfirmPassword) {
-        alert("Password is not match!");
-        return;
-      }
+    const email = Email.trim();
+    const firstname = Firstname.trim();
+    const lastname = Lastname.trim();
+    const phone = Phone.trim();
+    const birthdate = Birthdate.trim();
+    const password = Password;
+    const confirmPassword = ConfirmPassword;
 
+    if (
+      !email ||
+      !firstname ||
+      !lastname ||
+      !phone ||
+      !birthdate ||
+      !password ||
+      !confirmPassword
+    ) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!/^\d{10}$/.test(phone)) {
+      alert("Phone number must be 10 digits.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
       const response = await axios.post(
         "http://10.4.53.25:5008/sellerRegister",
         {
-          Email,
-          Firstname,
-          Lastname,
-          Phone,
-          Birthdate,
-          Password,
-          ConfirmPassword,
+          Email: email,
+          Firstname: firstname,
+          Lastname: lastname,
+          Phone: phone,
+          Birthdate: birthdate,
+          Password: password,
+          ConfirmPassword: confirmPassword,
         }
       );
 
-      console.log(response.data);
-
       if (response.status === 200) {
         alert("Registration successful!");
-        window.location.href = "/login";
+        window.location.href = "/";
       } else {
         alert(response.data.message || "Registration failed.");
       }
