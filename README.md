@@ -25,13 +25,13 @@ and is intended for browsing, showcasing, and reviewing shops only.
 
 ## Features
 
-### 👤 Customer / General User
+### Customer / General User
 - View multiple registered solar panel shops
 - View shop details and shop profiles
 - Browse products available in each shop
 - Read customer reviews for each shop
 
-### 🏪 Shop / Seller
+### Shop / Seller
 - Register a shop on the platform
 - Add and edit shop information
 - Add solar panel products to the shop
