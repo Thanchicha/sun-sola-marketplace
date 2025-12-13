@@ -29,6 +29,8 @@ and is intended for browsing, showcasing, and reviewing shops only.
 - View multiple registered solar panel shops
 - View shop details and shop profiles
 - Browse products available in each shop
+- Receive solar panel recommendations based on user needs
+- Submit reviews and ratings for solar panel shops
 - Read customer reviews for each shop
 
 ### Shop / Seller
