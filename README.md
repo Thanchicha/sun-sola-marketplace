@@ -60,9 +60,11 @@ and is intended for browsing, showcasing, and reviewing shops only.
 
 ## Installation
 
-1. Clone the repository
 ```bash
+1. Clone the repository
+
 git clone https://github.com/Thanchicha/Sun-Sola.git
+
 
 2. Navigate to the project directory
 
