@@ -1,7 +1,7 @@
 # Hackthon Project Sun-Sola
 
 
-Sun-Sola is a frontend e-commerce platform that connects solar panel shops 
+Sun-Sola is a frontend marketplace and review platform that connects solar panel shops 
 (sellers/installers) with customers who are looking for solar energy solutions.
 
 This project focuses on frontend development, user interface design, 
