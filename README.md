@@ -1,6 +1,5 @@
 # Hackthon Project Sun-Sola
 
-SIT DSI 2025 / G7
 
 Sun-Sola is a frontend e-commerce platform that connects solar panel shops 
 (sellers/installers) with customers who are looking for solar energy solutions.
