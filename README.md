@@ -7,7 +7,6 @@ Sun-Sola is a frontend e-commerce platform that connects solar panel shops
 This project focuses on frontend development, user interface design, 
 and user experience using React and Tailwind CSS.
 
----
 
 ## Project Overview
 
@@ -21,7 +20,6 @@ and read reviews before making a decision.
 This project does not include real payment or purchasing functionality 
 and is intended for browsing, showcasing, and reviewing shops only.
 
----
 
 ## Features
 
@@ -39,7 +37,6 @@ and is intended for browsing, showcasing, and reviewing shops only.
 - Add solar panel products to the shop
 - Manage shop product listings
 
----
 
 ## Tech Stack
 
@@ -48,7 +45,6 @@ and is intended for browsing, showcasing, and reviewing shops only.
 - React Router
 - Git & GitHub
 
----
 
 ## Project Scope & Limitations
 
@@ -58,7 +54,6 @@ and is intended for browsing, showcasing, and reviewing shops only.
 - Data is managed using mock data and frontend state
 - The platform is designed as a browsing and review system
 
----
 
 ## Installation
 
