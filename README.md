@@ -63,17 +63,13 @@ and is intended for browsing, showcasing, and reviewing shops only.
 git clone https://github.com/Thanchicha/Sun-Sola.git
 ```
 
-2. Navigate to the project directory
-```bash
-cd frontend
-```
 
-3. Install dependencies
+2. Install dependencies
 ```bash
 npm install
 ```
 
-4. Run the project
+3. Run the project
 ```bash
 npm run dev
 ```
