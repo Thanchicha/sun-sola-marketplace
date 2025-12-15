@@ -20,12 +20,12 @@ function About() {
           </div>
 
           <img
-            src="/public/images/home/solar1.png"
+            src="/images/home/solar1.png"
             alt="solar pic"
             className="w-full h-full"
           />
           <img
-            src="/public/images/home/solar2.png"
+            src="/images/home/solar2.png"
             alt="solar pic"
             className="w-full h-full"
           />

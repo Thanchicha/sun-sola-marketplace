@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex gap-8">
         <div className="w-1/5">
           <img
-            src="/public/images/icons/sunsolaLogo.png"
+            src="/images/icons/sunsolaLogo.png"
             alt="Sun Sola Logo"
             className="w-38 mb-4"
           />
@@ -55,12 +55,12 @@ export default function Footer() {
           <h3 className="font-semibold text-lg mb-2 mt-10">Supported by</h3>
           <div className="flex flex-rows items-center">
             <img
-              src="/public/images/icons/kmutt.png"
+              src="/images/icons/kmutt.png"
               alt="KMUTT Logo"
               className="w-25"
             />
             <img
-              src="/public/images/icons/sit.png"
+              src="/images/icons/sit.png"
               alt="SIT Logo"
               className="w-30 h-10"
             />

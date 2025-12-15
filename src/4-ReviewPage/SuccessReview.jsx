@@ -5,7 +5,7 @@ function SuccessReview() {
   return (
     <div className="relative h-screen w-screen">
       <img
-        src="/public/images/review/success.png"
+        src="/images/review/success.png"
         alt=""
         className="h-full w-full object-cover"
       />

@@ -17,7 +17,7 @@ function Stat() {
         <div className="flex justify-center pb-[65px]">
           <div className="flex flex-col items-center">
             <img
-              src="/public/icons/home/Shop.svg"
+              src="/icons/home/Shop.svg"
               alt="Shop"
               width={100}
               className="mb-2.5 mx-[140px]"
@@ -28,7 +28,7 @@ function Stat() {
 
           <div className="flex flex-col items-center">
             <img
-              src="/public/icons/home/Ratings.svg"
+              src="/icons/home/Ratings.svg"
               alt="Rating"
               width={100}
               className="mb-2.5 mx-[140px]"
@@ -39,7 +39,7 @@ function Stat() {
 
           <div className="flex flex-col items-center ">
             <img
-              src="/public/icons/home/User.svg"
+              src="/icons/home/User.svg"
               alt="Internet"
               width={100}
               className="mb-2.5 mx-[140px]"

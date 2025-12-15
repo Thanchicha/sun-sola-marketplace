@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const Banner = () => {
   const images = [
-    "/public/images/home/banner1.png",
-    "/public/images/home/banner2.png",
-    "/public/images/home/banner3.png",
-    "/public/images/home/banner4.png",
+    "/images/home/banner1.png",
+    "/images/home/banner2.png",
+    "/images/home/banner3.png",
+    "/images/home/banner4.png",
   ];
 
   const [selectedImage, setSelectedImage] = useState(images[0]);

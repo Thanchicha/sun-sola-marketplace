@@ -48,13 +48,13 @@ function Narbar({ icon, line, page }) {
               <span class="flex">
                 {user.role === "seller" ? (
                   <img
-                    src="/public/images/icons/user.png"
+                    src="/images/icons/user.png"
                     alt="Seller Profile"
                     class="w-10 rounded-full"
                   />
                 ) : (
                   <img
-                    src="/public/images/icons/user.png"
+                    src="/images/icons/user.png"
                     alt="User Profile"
                     class="w-10 rounded-full"
                   />

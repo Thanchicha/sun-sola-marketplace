@@ -24,7 +24,7 @@ function Shop() {
       <div className="mx-[160px] my-[65px]">
         <ThisShop shopData={shopDetail} />
         <div className="py-15">
-          <ThisShopProduct ShopID={parseInt(id)} />;
+          <ThisShopProduct ShopID={parseInt(id)} />
         </div>
       </div>
     </>

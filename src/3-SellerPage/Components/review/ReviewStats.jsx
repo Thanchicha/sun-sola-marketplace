@@ -92,9 +92,7 @@ const ReviewStats = () => {
         {[5, 4, 3, 2, 1].map((num) => (
           <button
             key={num}
-            onClick={() =>
-              setSelectedScore(num === selectedScore ? null : num)
-            }
+            onClick={() => setSelectedScore(num === selectedScore ? null : num)}
             className={`border rounded-full px-4 py-1 text-sm hover:bg-blue-100 hover:border-[#193C76] ${
               selectedScore === num ? "bg-blue-100 border-[#193C76]" : ""
             }`}
@@ -113,7 +111,9 @@ const ReviewStats = () => {
             <div className="flex justify-between items-center">
               <div className="flex gap-3 items-center">
                 <span className="font-medium">{review.Username}</span>
-                <span className="text-xs text-gray-400">{review.reviewDate}</span>
+                <span className="text-xs text-gray-400">
+                  {review.reviewDate}
+                </span>
               </div>
               <div className="mt-2">{renderStars(review.Score)}</div>
             </div>
@@ -128,18 +128,17 @@ const ReviewStats = () => {
               ))}
             </div>
             <div className="flex space-x-2 mt-2">
-
               {review.Category.shop && (
-    <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
-    Shop review
-  </span>
-)}
+                <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
+                  Shop review
+                </span>
+              )}
 
-{review.reviewTypes?.product && (
-  <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
-    Product review
-  </span>
-)}
+              {review.reviewTypes?.product && (
+                <span className="border border-blue-900 text-blue-900 text-xs px-3 py-1 rounded-full">
+                  Product review
+                </span>
+              )}
             </div>
             <p className="mt-2 text-sm text-gray-700 leading-relaxed">
               {review.Detail}

@@ -34,17 +34,17 @@ function ShopReview({ Title }) {
         
         <div className="flex gap-3 mb-3">
           <img
-            src="/public/images/seller/review1.png"
+            src="/images/seller/review1.png"
             alt="review 1"
             className="w-[140px] h-[100px] rounded object-cover"
           />
           <img
-            src="/public/images/seller/review2.png"
+            src="/images/seller/review2.png"
             alt="review 2"
             className="w-[140px] h-[100px] rounded object-cover"
           />
           <img
-            src="/public/images/seller/review3.png"
+            src="/images/seller/review3.png"
             alt="review 3"
             className="w-[140px] h-[100px] rounded object-cover"
           />

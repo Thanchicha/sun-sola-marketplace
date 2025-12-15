@@ -7,7 +7,7 @@ function Type() {
       <div className="flex flex-wrap gap-6 justify-center my-[50px] mx-[150px] text-center">
         {/* Mono */}
         <TypeBox
-          image="/public/images/home/mono.png"
+          image="/images/home/mono.png"
           title="แผงโซล่าเซลล์โมโนคริสตัลไลน์"
           subtitle="Monocrystalline Silicon Solar Cells"
           detail="เป็นแผงที่ทำมาจากซิลิคอนทรงกระบอกบริสุทธิ์รูปทรงของเซลล์จะมีสีเข้ม
@@ -21,7 +21,7 @@ function Type() {
 
         {/* Poly */}
         <TypeBox
-          image="/public/images/home/poly.png"
+          image="/images/home/poly.png"
           title="แผงโซล่าเซลล์โพลีคริสตัลไลน์"
           subtitle="Polycrystalline Silicon Solar Cells"
           detail="ทำมาจากผลึกซิลิคอน โดยทั่วไปเรียกว่า โพลีคริสตัลไลน์
@@ -35,7 +35,7 @@ function Type() {
 
         {/* Thin Film */}
         <TypeBox
-          image="/public/images/home/thin.png"
+          image="/images/home/thin.png"
           title="แผงโซล่าเซลล์ฟิล์มบาง"
           subtitle="Thin Film Solar Cells"
           detail="หลักการโดยทั่วไปของการผลิต คือ

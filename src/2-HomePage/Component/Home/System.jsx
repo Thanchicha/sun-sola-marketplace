@@ -23,7 +23,7 @@ function System() {
         />
       </div>
       <img
-        src="/public/images/home/solar3.png"
+        src="/images/home/solar3.png"
         alt="solar"
         className="w-full"
       />

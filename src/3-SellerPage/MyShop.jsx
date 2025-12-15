@@ -22,7 +22,7 @@ function MyShop() {
       <Narbar
         icon={
           <img
-            src="/public/images/icons/sunsolaLogo.png"
+            src="/images/icons/sunsolaLogo.png"
             alt="logo"
             width="78"
           />

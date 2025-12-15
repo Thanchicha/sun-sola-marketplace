@@ -44,7 +44,7 @@ const mockProductDataList = {
 - Operating Current(Imp): 13.19A
 - Dimensions: 2465x1134x30mm`,
     Price: 2585,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "แผงโซล่าเซลล์ Jinko Tiger Neo 560W N-type",
@@ -54,7 +54,7 @@ const mockProductDataList = {
 - Short Circuit Current(Isc): 13.91A
 - Dimensions: 2278x1134x30mm`,
     Price: 2390,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "อินเวอร์เตอร์ Huawei SUN2000-10KTL-M1",
@@ -64,7 +64,7 @@ const mockProductDataList = {
 - Communication: RS485, Wi-Fi
 - Dimensions: 525x470x166mm`,
     Price: 3250,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     },
   ],
   102: [
@@ -76,7 +76,7 @@ const mockProductDataList = {
 - Isc: 15.1A
 - Dimensions: 2384x1303x35mm`,
     Price: 2690,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "โครงเหล็กติดตั้งโซล่าเซลล์แบบปรับมุม",
@@ -85,7 +85,7 @@ const mockProductDataList = {
 - ปรับมุมได้: 15° - 45°
 - ใช้งาน: หลังคาลอน, พื้นดิน`,
     Price: 1850,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "Smart Meter Growatt TPM-E",
@@ -94,7 +94,7 @@ const mockProductDataList = {
 - Accuracy: Class 1
 - Installation: DIN Rail`,
     Price: 5500,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   103: [
@@ -106,7 +106,7 @@ const mockProductDataList = {
 - น้ำหนัก: 14kg
 - ขนาด: 310x543x160mm`,
     Price: 15800,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "Hybrid Inverter DEYE SUN-8K-SG04LP3",
@@ -116,7 +116,7 @@ const mockProductDataList = {
 - รองรับ PV สูงสุด 10400W
 - ขนาด: 455x565x181mm`,
     Price: 42900,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "กล่องกันน้ำ MC4 พร้อมฟิวส์ 1000V",
@@ -125,7 +125,7 @@ const mockProductDataList = {
 - รวมฟิวส์: 15A
 - ช่องเชื่อมต่อ: 4 ช่อง`,
     Price: 490,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   104: [
@@ -137,7 +137,7 @@ const mockProductDataList = {
 - Current at Pmax: 10.93A  
 - Dimensions: 2108x1048x35mm`,
     Price: 4890,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "อินเวอร์เตอร์ Growatt MIN 2500TL-X",
@@ -147,7 +147,7 @@ const mockProductDataList = {
 - น้ำหนัก: 6.2kg  
 - ขนาด: 375x350x160mm`,
     Price: 7790,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "แบตเตอรี่ AGM 12V 100Ah Deep Cycle",
@@ -157,7 +157,7 @@ const mockProductDataList = {
 - ใช้งาน: ระบบโซล่าร์, สำรองไฟ  
 - น้ำหนัก: 28kg`,
     Price: 7490,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   105: [
@@ -169,7 +169,7 @@ const mockProductDataList = {
 - Efficiency: >98%  
 - รองรับระบบแบตเตอรี่หลายชนิด`,
     Price: 2690,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "แบตเตอรี่ลิเธียม LiFePO4 12V 50Ah",
@@ -179,7 +179,7 @@ const mockProductDataList = {
 - น้ำหนักเบาและปลอดภัย  
 - เหมาะสำหรับระบบโซลาร์พกพา`,
     Price: 6850,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "อินเวอร์เตอร์ Pure Sine Wave 1000W 12V",
@@ -189,7 +189,7 @@ const mockProductDataList = {
 - USB + AC Sockets  
 - ระบบป้องกันครบวงจร`,
     Price: 3150,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   106: [
@@ -201,7 +201,7 @@ const mockProductDataList = {
 - Sensor: Motion + Light  
 - รีโมทควบคุม + ขาตั้ง`,
     Price: 1290,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "พัดลมโซล่าเซลล์ 18 นิ้ว DC 12V",
@@ -210,7 +210,7 @@ const mockProductDataList = {
 - เหมาะสำหรับใช้ในฟาร์ม/บ้าน  
 - ใช้งานต่อเนื่อง 6-8 ชม.`,
     Price: 2490,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "ปั๊มน้ำพลังงานแสงอาทิตย์ 12V DC 60W",
@@ -220,7 +220,7 @@ const mockProductDataList = {
 - เหมาะสำหรับรดน้ำ/เกษตร  
 - ท่อเข้า/ออก: 1 นิ้ว`,
     Price: 1390,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   107: [
@@ -231,7 +231,7 @@ const mockProductDataList = {
 - ไฟ LED 3 หลอด  
 - เหมาะสำหรับบ้านพักชั่วคราว/เดินป่า`,
     Price: 1890,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
      Name: "แผงโซล่าเซลล์ Trina Solar 670W Bifacial",
@@ -242,7 +242,7 @@ const mockProductDataList = {
 - Current at Pmax: 17.4A  
 - Dimensions: 2384x1303x35mm`,
     Price: 9250,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
      Name: "อินเวอร์เตอร์ Huawei SUN2000-5KTL-M1",
@@ -252,7 +252,7 @@ const mockProductDataList = {
 - Smart Monitoring via App  
 - ประสิทธิภาพสูงสุด 98.4%`,
     Price: 34900,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
   108: [
@@ -264,7 +264,7 @@ const mockProductDataList = {
 - ติดตั้งพร้อมใช้งาน  
 - รับประกัน 10 ปี`,
     Price: 79000,
-      Image: "/public/images/allshop/thlgfjlgh.jpg",
+      Image: "/images/allshop/thlgfjlgh.jpg",
     },
     {
       Name: "แบตเตอรี่ลิเธียม LiFePO4 48V 200Ah",
@@ -274,7 +274,7 @@ const mockProductDataList = {
 - Smart BMS ในตัว  
 - ใช้กับระบบ Hybrid/Inverter`,
     Price: 88000,
-      Image: "/public/images/allshop/jqftggikh.jpg",
+      Image: "/images/allshop/jqftggikh.jpg",
     },
     {
       Name: "อินเวอร์เตอร์ Hybrid Victron MultiPlus-II 48/5000/70",
@@ -284,7 +284,7 @@ const mockProductDataList = {
 - รองรับระบบ Lithium  
 - เชื่อมต่อผ่าน Victron VRM`,
     Price: 67500,
-      Image: "/public/images/allshop/qpkjhmnfd.jpg",
+      Image: "/images/allshop/qpkjhmnfd.jpg",
     }, 
   ],
 };
