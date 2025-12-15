@@ -43,7 +43,9 @@ This is a frontend-only project created for a hackathon.
 - No real payment or checkout system
 - Uses mock data and frontend state management
 - Designed for browsing, comparison, and reviews only
-
+- Responsive design is optimized for laptop and desktop devices
+- Mobile and tablet responsiveness is out of scope for this project
+  
 
 ## Installation
 
