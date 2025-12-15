@@ -42,6 +42,13 @@ This is a frontend-only project created for a hackathon.
 - Git & GitHub
 
 
+## CRUD Implementation (Mock Data)
+
+- Shop: Create, Read, Update
+- Product: Create, Read, Update, Delete
+- Review: Create, Read
+
+
 ## Project Scope & Limitations
 - Frontend only (no backend or database)
 - No real payment or checkout system
@@ -49,7 +56,8 @@ This is a frontend-only project created for a hackathon.
 - Designed for browsing, comparison, and reviews only
 - Responsive design is optimized for laptop and desktop devices
 - Mobile and tablet responsiveness is out of scope for this project
-  
+- Authentication UI implemented (frontend only, no backend integration)
+
 
 ## Installation
 
