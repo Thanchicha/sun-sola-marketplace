@@ -1,62 +1,49 @@
-# Hackthon Project Sun-Sola
+# Hackathon Project: Sun-Sola
 
+Sun-Sola is a frontend marketplace and review platform for solar panel shops and customers.
+The platform allows users to explore solar panel shops, view products, receive recommendations,
+and read or submit reviews before making a decision.
 
-Sun-Sola is a frontend e-commerce platform that connects solar panel shops 
-(sellers/installers) with customers who are looking for solar energy solutions.
+This project focuses on frontend development and user experience using React and Tailwind CSS.
+It does not include real purchasing or payment functionality.
 
-This project focuses on frontend development, user interface design, 
-and user experience using React and Tailwind CSS.
-
----
 
 ## Project Overview
 
-Sun-Sola is a frontend-only marketplace and review platform for solar panel shops 
-and customers.
+Sun-Sola acts as a middle platform between solar panel sellers/installers and customers.
+Users can browse multiple shops, compare products, and review shops,
+while sellers can register and manage their shop information and product listings.
 
-The platform acts as a middleman between solar panel sellers/installers and 
-customers who want to explore different shops, view product information, 
-and read reviews before making a decision.
+This is a frontend-only project created for a hackathon.
 
-This project does not include real payment or purchasing functionality 
-and is intended for browsing, showcasing, and reviewing shops only.
-
----
 
 ## Features
 
 ### Customer / General User
-- View multiple registered solar panel shops
-- View shop details and shop profiles
-- Browse products available in each shop
-- Read customer reviews for each shop
+- Browse registered solar panel shops
+- View shop profiles and product information
+- Receive solar panel recommendations based on user needs
+- Read and submit shop reviews and ratings
 
 ### Shop / Seller
 - Register a shop on the platform
-- Add and edit shop information
-- Add solar panel products to the shop
-- Manage shop product listings
+- Add and edit shop details
+- Add and manage solar panel products
 
----
 
 ## Tech Stack
-
 - React (JavaScript)
 - Tailwind CSS
 - React Router
 - Git & GitHub
 
----
 
 ## Project Scope & Limitations
+- Frontend only (no backend or database)
+- No real payment or checkout system
+- Uses mock data and frontend state management
+- Designed for browsing, comparison, and reviews only
 
-- This project is frontend-focused only
-- No real payment system or checkout process
-- No backend or database integration
-- Data is managed using mock data and frontend state
-- The platform is designed as a browsing and review system
-
----
 
 ## Installation
 
@@ -66,17 +53,12 @@ and is intended for browsing, showcasing, and reviewing shops only.
 git clone https://github.com/Thanchicha/Sun-Sola.git
 ```
 
-2. Navigate to the project directory
-```bash
-cd frontend
-```
-
-3. Install dependencies
+2. Install dependencies
 ```bash
 npm install
 ```
 
-4. Run the project
+3. Run the project
 ```bash
 npm run dev
 ```
